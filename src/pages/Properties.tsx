@@ -11,19 +11,24 @@ const Properties = () => {
   const navigate = useNavigate();
 
   // Capitalize category for display (e.g., "villas" -> "Villas")
-  const title = category
-    ? category.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())
-    : "Properties";
+  const title =
+    !category || category === "all"
+      ? "All Properties"
+      : category.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase());
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [category]);
 
   // Filter projects by category
-  const displayProjects = projects.filter(
-    (p) =>
-      p.category.toLowerCase().replace(" ", "-") === category?.toLowerCase(),
-  );
+  const displayProjects =
+    !category || category === "all"
+      ? projects
+      : projects.filter(
+          (p) =>
+            p.category.toLowerCase().replace(" ", "-") ===
+            category?.toLowerCase(),
+        );
 
   return (
     <div className="bg-orbit-dark min-h-screen text-white font-sans pt-24">

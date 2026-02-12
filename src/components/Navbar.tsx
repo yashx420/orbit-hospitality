@@ -37,8 +37,9 @@ const Navbar = () => {
     { name: "About", path: getSectionPath("about") },
     {
       name: "Properties",
-      path: "#",
+      path: "/properties/all",
       dropdown: [
+        { name: "All Properties", path: "/properties/all" },
         { name: "Villas", path: "/properties/villas" },
         { name: "Hotels", path: "/properties/hotels" },
         { name: "Service Apartments", path: "/properties/service-apartments" },
@@ -77,9 +78,12 @@ const Navbar = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               {link.dropdown ? (
-                <button className="text-white hover:text-orbit-gold transition-colors duration-300 text-sm uppercase tracking-widest flex items-center gap-1">
+                <Link
+                  to={link.path}
+                  className="text-white hover:text-orbit-gold transition-colors duration-300 text-sm uppercase tracking-widest flex items-center gap-1"
+                >
                   {link.name}
-                </button>
+                </Link>
               ) : (
                 <Link
                   to={link.path}

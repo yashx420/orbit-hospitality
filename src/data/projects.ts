@@ -118,4 +118,34 @@ export const projects = [
     ],
     heroImage: "/projects/White lotus/6-2.jpg",
   },
+  {
+    id: "the-grand-orbit",
+    title: "The Grand Orbit",
+    category: "Hotels",
+    location: "Bangalore",
+    price: "Start from $300/night",
+    bedrooms: 2,
+    bathrooms: 2,
+    description:
+      "A flagship luxury hotel offering sophisticated suites and world-class service. The Grand Orbit is the pinnacle of hospitality, featuring an infinity pool, fine dining, and panoramic city views.",
+    amenities: [
+      "Infinity Pool",
+      "Fine Dining Restaurant",
+      "Spa & Wellness Center",
+      "24/7 Room Service",
+      "Concierge Services",
+      "Smart Home Technology",
+      "Luxe Flooring",
+      "Designer Interiors",
+      "Valet Parking",
+      "Business Center",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
+    ],
+    heroImage:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+  },
 ];
