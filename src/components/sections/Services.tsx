@@ -1,5 +1,5 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Wifi, MapPin, Coffee, Shield, Car, Star } from "lucide-react";
+import { Wifi, MapPin, Coffee, Shield, PartyPopper, Star } from "lucide-react";
 import type { MouseEvent } from "react";
 
 const services = [
@@ -24,9 +24,9 @@ const services = [
     desc: "Round-the-clock security personnel and surveillance for your safety.",
   },
   {
-    icon: Car,
-    title: "Valet Parking",
-    desc: "Ample secure parking space with complimentary valet service.",
+    icon: PartyPopper,
+    title: "Event Rentals",
+    desc: "Premium venues available for birthdays, weddings, and special events.",
   },
   {
     icon: Star,
