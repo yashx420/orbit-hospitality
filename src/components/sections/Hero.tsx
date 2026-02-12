@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   motion,
   useScroll,
@@ -8,6 +9,7 @@ import {
 } from "framer-motion";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -114,7 +116,8 @@ const Hero = () => {
               color: "#000",
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border border-orbit-gold text-orbit-gold uppercase tracking-widest font-bold text-sm md:text-base transition-colors duration-300"
+            onClick={() => navigate("/properties/villas")}
+            className="px-8 py-4 border border-orbit-gold text-orbit-gold uppercase tracking-widest font-bold text-sm md:text-base transition-colors duration-300 pointer-events-auto"
             style={{ transform: "translateZ(120px)" }}
           >
             Explore Rooms

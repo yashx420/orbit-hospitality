@@ -81,13 +81,13 @@ const Navbar = () => {
                   {link.name}
                 </button>
               ) : (
-                <a
-                  href={link.path}
+                <Link
+                  to={link.path}
                   onClick={(e) => scrollToSection(e, link.path)}
                   className="text-white hover:text-orbit-gold transition-colors duration-300 text-sm uppercase tracking-widest"
                 >
                   {link.name}
-                </a>
+                </Link>
               )}
 
               {/* Dropdown */}
@@ -102,13 +102,13 @@ const Navbar = () => {
                       className="absolute top-full left-0 mt-2 w-48 bg-orbit-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden py-2"
                     >
                       {link.dropdown.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.path}
+                          to={item.path}
                           className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </motion.div>
                   )}
@@ -141,8 +141,8 @@ const Navbar = () => {
             <div className="flex flex-col items-center py-8 space-y-6">
               {navLinks.map((link) => (
                 <div key={link.name} className="flex flex-col items-center">
-                  <a
-                    href={link.path}
+                  <Link
+                    to={link.path}
                     onClick={(e) => {
                       scrollToSection(e, link.path);
                       if (!link.dropdown) setIsMobileMenuOpen(false);
@@ -150,18 +150,18 @@ const Navbar = () => {
                     className="text-white text-lg hover:text-orbit-gold transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                   {link.dropdown && (
                     <div className="flex flex-col items-center mt-2 space-y-2">
                       {link.dropdown.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.path}
+                          to={item.path}
                           onClick={() => setIsMobileMenuOpen(false)}
                           className="text-gray-400 text-sm"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}

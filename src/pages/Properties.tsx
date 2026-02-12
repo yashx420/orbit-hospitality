@@ -19,8 +19,11 @@ const Properties = () => {
     window.scrollTo(0, 0);
   }, [category]);
 
-  // As requested, showing all 3 projects for every category
-  const displayProjects = projects;
+  // Filter projects by category
+  const displayProjects = projects.filter(
+    (p) =>
+      p.category.toLowerCase().replace(" ", "-") === category?.toLowerCase(),
+  );
 
   return (
     <div className="bg-orbit-dark min-h-screen text-white font-sans pt-24">

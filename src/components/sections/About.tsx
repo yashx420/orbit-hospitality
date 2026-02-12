@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 
 const About = () => {
+  const scrollToRooms = () => {
+    const element = document.getElementById("rooms");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="about"
@@ -63,9 +70,10 @@ const About = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={scrollToRooms}
             className="text-white border-b border-orbit-gold pb-1 hover:text-orbit-gold transition-colors"
           >
-            Read More About Us
+            Explore Our Rooms
           </motion.button>
         </div>
 
