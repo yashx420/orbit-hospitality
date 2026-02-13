@@ -15,7 +15,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <img
-              src="/logo_full.png"
+              src="/logo_half.png"
               alt="Orbit Hotels"
               className="h-14 w-auto"
             />
