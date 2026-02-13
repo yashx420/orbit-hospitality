@@ -288,13 +288,7 @@ const BentoGrid = () => {
   );
 };
 
-const TiltFeatureCard = ({
-  icon: Icon,
-  title,
-  description,
-  variants,
-  delay,
-}: any) => (
+const TiltFeatureCard = ({ icon: Icon, title, description, variants }: any) => (
   <motion.div variants={variants} className="h-full">
     <TiltCard className="bg-white/5 backdrop-blur-md rounded-[2rem] p-8 flex flex-col justify-between group hover:bg-white/10 transition-all duration-500 cursor-pointer h-full border border-white/10 hover:border-orbit-gold/30 shadow-xl relative overflow-hidden">
       {/* Background Shine */}
