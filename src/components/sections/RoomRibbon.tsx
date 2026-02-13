@@ -90,7 +90,7 @@ const RoomRibbon = () => {
                     <img
                       src={room.image}
                       alt={room.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
 
