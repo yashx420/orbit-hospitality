@@ -23,5 +23,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".stroke-text-gold": {
+          "-webkit-text-stroke": "2px #c5a059",
+        },
+      });
+    },
+  ],
 };

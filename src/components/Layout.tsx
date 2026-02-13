@@ -8,10 +8,18 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-orbit-dark text-white font-sans">
+    <div className="min-h-screen flex flex-col font-sans bg-orbit-dark">
       <Navbar />
-      <main className="flex-grow">{children}</main>
-      <Footer />
+
+      {/* Main Content with Curtain Effect */}
+      <div className="relative z-10 bg-orbit-dark mb-[500px] md:mb-[400px] shadow-2xl rounded-b-[3rem]">
+        <main className="flex-grow">{children}</main>
+      </div>
+
+      {/* Fixed Footer (Behind Content) */}
+      <div className="fixed bottom-0 left-0 w-full z-0 h-[500px] md:h-[400px]">
+        <Footer />
+      </div>
     </div>
   );
 };

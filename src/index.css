@@ -11,6 +11,7 @@ html {
 @layer base {
   body {
     @apply bg-orbit-dark text-white font-sans antialiased;
+    overflow-x: hidden;
   }
   h1,
   h2,

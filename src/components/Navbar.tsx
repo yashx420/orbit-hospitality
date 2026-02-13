@@ -52,19 +52,19 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full w-[95%] max-w-5xl ${
         isScrolled
-          ? "bg-orbit-dark/80 backdrop-blur-md py-4 shadow-lg"
-          : "bg-transparent py-6"
+          ? "top-4 bg-orbit-dark/90 backdrop-blur-md shadow-lg border border-white/10 px-4 md:px-6 py-3"
+          : "top-6 bg-transparent px-4 md:px-6 py-4"
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="flex justify-between items-center gap-4 md:gap-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center shrink-0">
           <img
-            src="/logo_full.png"
+            src="/logo.png"
             alt="Orbit Hotels"
-            className="h-12 w-auto"
+            className="h-10 w-auto object-contain"
           />
         </Link>
 
