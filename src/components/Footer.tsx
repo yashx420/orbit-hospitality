@@ -6,8 +6,14 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
+  const getSectionPath = (id: string) => {
+    return location.pathname === "/" ? `#${id}` : `/#${id}`;
+  };
   return (
     <footer className="bg-orbit-dark border-t border-white/10 pt-16 pb-8">
       <div className="container mx-auto px-6">
@@ -32,36 +38,36 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
-                <a
-                  href="#about"
+                <Link
+                  to={getSectionPath("about")}
                   className="hover:text-orbit-gold transition-colors"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to={getSectionPath("services")}
                   className="hover:text-orbit-gold transition-colors"
                 >
                   Amenities
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#rooms"
+                <Link
+                  to="/properties/all"
                   className="hover:text-orbit-gold transition-colors"
                 >
                   Properties
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="hover:text-orbit-gold transition-colors"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

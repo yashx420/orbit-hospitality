@@ -9,7 +9,9 @@ export default function ScrollToTop() {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
+  }, []); // Run once on mount
 
+  useEffect(() => {
     // If there is a hash, let the hash scrolling logic handle it
     if (hash) {
       const id = hash.replace("#", "");
