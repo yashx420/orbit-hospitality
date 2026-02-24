@@ -24,14 +24,14 @@ const Properties = () => {
   const displayProjects =
     !category || category === "all"
       ? projects
-      : projects.filter(
-          (p) =>
-            p.category.toLowerCase().replace(" ", "-") ===
-            category?.toLowerCase(),
+      : projects.filter((p) =>
+          p.category
+            .toLowerCase()
+            .includes(category?.toLowerCase().replace(/-/g, " ") || ""),
         );
 
   return (
-    <div className="bg-orbit-dark min-h-screen text-white font-sans pt-24">
+    <div className="bg-orbit-dark min-h-dvh text-white font-sans pt-32">
       <SEO
         title={`${title} Collection`}
         description={`Discover our handpicked collection of luxury ${title.toLowerCase()} at Orbit Hospitality. Experience absolute luxury and comfort in every stay.`}

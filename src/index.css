@@ -37,3 +37,13 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #c5a059;
 }
+
+/* Safari and iOS Backdrop Blur Performance Fixes */
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg,
+.backdrop-blur-xl {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: filter, backdrop-filter;
+}

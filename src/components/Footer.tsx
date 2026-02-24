@@ -75,7 +75,8 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-orbit-gold shrink-0" />
                 <span>
-                  296, 7th Main Rd, VHBCS Layout, Nagavara, Bangalore-560045
+                  3rd Floor, 296, 7th Main Rd, Vyalikaval HBCS Layout, Nagavara,
+                  Bengaluru, Karnataka 560045
                 </span>
               </li>
               <li className="flex items-center space-x-3">

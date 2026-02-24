@@ -14,7 +14,7 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div className="bg-orbit-dark min-h-screen text-white font-sans pt-24 pb-20">
+    <div className="bg-orbit-dark min-h-dvh text-white font-sans pt-32 pb-20">
       <SEO
         title="The Orbit Journal"
         description="Dive into our curated collection of articles on design, luxury travel, and the art of modern hospitality. Stories of luxury and life from Orbit Hospitality."

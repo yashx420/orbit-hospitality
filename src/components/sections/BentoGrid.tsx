@@ -257,11 +257,11 @@ const BentoGrid = () => {
                 style={{ transform: "translateZ(40px)" }}
               >
                 <h3 className="text-4xl font-serif font-bold text-black mb-4">
-                  Gourmet Breakfast
+                  Family Friendly
                 </h3>
                 <p className="text-black/80 text-lg font-medium max-w-md leading-relaxed">
-                  Start your day with a delicious, complimentary gourmet spread
-                  designed to energize your morning.
+                  Spacious environments and amenities tailored for a comfortable
+                  family stay.
                 </p>
               </div>
             </TiltCard>

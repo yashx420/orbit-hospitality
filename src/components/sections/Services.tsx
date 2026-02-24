@@ -1,5 +1,5 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Wifi, MapPin, Coffee, Shield, PartyPopper, Star } from "lucide-react";
+import { Wifi, MapPin, Shield, PartyPopper, Star, Users } from "lucide-react";
 import type { MouseEvent } from "react";
 
 const services = [
@@ -14,9 +14,9 @@ const services = [
     desc: "Strategically located near Manyata Tech Park and key city hubs.",
   },
   {
-    icon: Coffee,
-    title: "Gourmet Breakfast",
-    desc: "Start your day with a delicious, complimentary gourmet spread.",
+    icon: Users,
+    title: "Family Friendly",
+    desc: "Spacious environments and amenities tailored for a comfortable family stay.",
   },
   {
     icon: Shield,

@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-orbit-dark">
+    <div className="min-h-dvh flex flex-col font-sans bg-orbit-dark">
       <Navbar />
 
       {/* Main Content with Curtain Effect */}

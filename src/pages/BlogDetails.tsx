@@ -18,7 +18,7 @@ const BlogDetails = () => {
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-orbit-dark flex items-center justify-center text-white">
+      <div className="min-h-dvh bg-orbit-dark flex items-center justify-center text-white">
         <SEO
           title="Article Not Found"
           description="The requested article could not be found."
@@ -37,10 +37,10 @@ const BlogDetails = () => {
   }
 
   return (
-    <article className="bg-orbit-dark min-h-screen text-white font-sans pb-20">
+    <article className="bg-orbit-dark min-h-dvh text-white font-sans pb-20">
       <SEO title={blog.title} description={blog.excerpt} image={blog.image} />
       {/* Hero Image */}
-      <div className="relative h-[60vh] w-full overflow-hidden">
+      <div className="relative h-[60dvh] w-full overflow-hidden">
         <motion.img
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}

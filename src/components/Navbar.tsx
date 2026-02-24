@@ -40,14 +40,15 @@ const Navbar = () => {
       path: "/properties/all",
       dropdown: [
         { name: "All Properties", path: "/properties/all" },
-        { name: "Villas", path: "/properties/villas" },
-        { name: "Hotels", path: "/properties/hotels" },
         { name: "Service Apartments", path: "/properties/service-apartments" },
+        { name: "Hotels", path: "/properties/hotels" },
+        { name: "Party Venues", path: "/properties/party-venues" },
+        { name: "Villas", path: "/properties/villas" },
       ],
     },
     { name: "Services", path: getSectionPath("services") },
     { name: "Blogs", path: "/blogs" },
-    { name: "Contact", path: getSectionPath("contact") },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
