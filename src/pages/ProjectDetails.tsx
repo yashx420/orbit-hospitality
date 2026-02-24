@@ -7,12 +7,12 @@ import {
   MapPin,
   BedDouble,
   Bath,
-  CheckCircle,
   X,
   ChevronLeft,
   ChevronRight,
   Grid,
 } from "lucide-react";
+import { getAmenityIcon } from "../utils/amenityIcons";
 
 import SEO from "../components/SEO";
 
@@ -312,7 +312,6 @@ const ProjectDetails = () => {
                 </div>
               </div>
             </motion.div>
-
             {/* Description */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -343,7 +342,7 @@ const ProjectDetails = () => {
                     key={index}
                     className="flex items-start gap-3 text-gray-300"
                   >
-                    <CheckCircle className="w-5 h-5 text-orbit-gold flex-shrink-0 mt-0.5" />
+                    {getAmenityIcon(amenity)}
                     <span className="text-lg">{amenity}</span>
                   </li>
                 ))}

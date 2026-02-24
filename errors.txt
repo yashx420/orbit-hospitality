@@ -1,0 +1,4 @@
+src/utils/amenityIcons.tsx(21,3): error TS2724: '"react-icons/md"' has no exported member named 'MdOutlineIroningRoom'. Did you mean 'MdOutlineSmokingRooms'?
+src/utils/amenityIcons.tsx(35,29): error TS2305: Module '"react-icons/tb"' has no exported member 'TbToolsHairDryer'.
+src/utils/amenityIcons.tsx(35,47): error TS2305: Module '"react-icons/tb"' has no exported member 'TbMirror'.
+src/utils/amenityIcons.tsx(39,10): error TS2305: Module '"react-icons/cg"' has no exported member 'CgDoorEnter'.

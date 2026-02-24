@@ -70,7 +70,7 @@ const Contact = () => {
                 { icon: Mail, text: "info@orbithotels.in", label: "Email Us" },
                 {
                   icon: MapPin,
-                  text: "VHBCS Layout, Bangalore",
+                  text: "3rd Floor, 296, 7th Main Rd, Vyalikaval HBCS Layout, Nagavara, Bengaluru, Karnataka 560045",
                   label: "Visit Us",
                 },
               ].map((item, idx) => (
