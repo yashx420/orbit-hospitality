@@ -23,8 +23,9 @@ const Counter = ({ value }: { value: string }) => {
   // const opacity = useTransform(springValue, [0, 1], [0, 1]); // Simple fade in for non-numeric
 
   // Extract number if present
-  const numericValue = parseInt(value.replace(/[^0-9]/g, "")) || 0;
-  const suffix = value.replace(/[0-9]/g, "");
+  const isDecimal = value.includes(".");
+  const numericValue = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
+  const suffix = value.replace(/[0-9.]/g, "");
 
   // Update motion value when in view
   if (isInView) {
@@ -37,9 +38,10 @@ const Counter = ({ value }: { value: string }) => {
   useAnimationFrame(() => {
     if (textRef.current) {
       if (numericValue > 0) {
-        textRef.current.textContent = Math.round(
-          springValue.get(),
-        ).toLocaleString();
+        const current = springValue.get();
+        textRef.current.textContent = isDecimal
+          ? current.toFixed(1)
+          : Math.round(current).toLocaleString();
       } else {
         // Fallback for non-numeric values if any, though we mostly have numbers
         // textRef.current.textContent = value;
@@ -124,7 +126,7 @@ const Stats = () => {
   const stats = [
     { label: "Years of Excellence", value: "10+" },
     { label: "Prime Locations", value: "05" },
-    { label: "Luxury Rooms", value: "200+" },
+    { label: "Luxury Rooms", value: "15+" },
     { label: "Guest Rating", value: "4.9" },
   ];
 
