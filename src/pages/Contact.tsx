@@ -115,7 +115,7 @@ const Contact = () => {
   return (
     <div className="bg-orbit-dark text-white font-sans min-h-dvh">
       <SEO
-        title="Contact Us | Orbit Hospitality"
+        title="Contact Us"
         description="Get in touch with Orbit Hospitality — questions, bookings, and support."
       />
 

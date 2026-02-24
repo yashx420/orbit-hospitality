@@ -2,7 +2,7 @@ export const projects = [
   {
     id: "peace-lily",
     title: "Peace Lily",
-    category: "Villas, Service Apartments, Party Venues",
+    category: "Service Apartments, Party Venues",
     location: "Bangalore",
     bedrooms: 3,
     bathrooms: 3,
@@ -267,7 +267,7 @@ export const projects = [
   {
     id: "orbit-begonia",
     title: "Orbit Begonia Luxe",
-    category: "Hotels",
+    category: "Hotels, Service Apartments",
     location: "Bangalore",
     bedrooms: 3,
     bathrooms: 3,
@@ -591,7 +591,7 @@ export const projects = [
   {
     id: "orbit-celosia",
     title: "Orbit Celosia Luxe",
-    category: "Hotels",
+    category: "Hotels, Service Apartments",
     location: "Hebbal, Bangalore",
     bedrooms: 2,
     bathrooms: 2,
@@ -660,7 +660,7 @@ export const projects = [
   {
     id: "orbit-lavender-luxe",
     title: "Orbit Lavender Luxe",
-    category: "Hotels",
+    category: "Hotels, Service Apartments",
     location: "Hebbal, Bangalore",
     bedrooms: 2,
     bathrooms: 2,
