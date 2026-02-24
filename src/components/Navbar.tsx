@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { projects } from "../data/projects";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(
+    null,
+  );
+  const [expandedMobileCategory, setExpandedMobileCategory] = useState<
+    string | null
+  >(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -33,6 +40,12 @@ const Navbar = () => {
     }
   };
 
+  const getSubDropdown = (categoryFilter: string) => {
+    return projects
+      .filter((p) => p.category.toLowerCase().includes(categoryFilter))
+      .map((p) => ({ name: p.title, path: `/project/${p.id}` }));
+  };
+
   const navLinks = [
     { name: "About", path: getSectionPath("about") },
     {
@@ -40,10 +53,26 @@ const Navbar = () => {
       path: "/properties/all",
       dropdown: [
         { name: "All Properties", path: "/properties/all" },
-        { name: "Service Apartments", path: "/properties/service-apartments" },
-        { name: "Hotels", path: "/properties/hotels" },
-        { name: "Party Venues", path: "/properties/party-venues" },
-        { name: "Villas", path: "/properties/villas" },
+        {
+          name: "Service Apartments",
+          path: "/properties/service-apartments",
+          subDropdown: getSubDropdown("service apartments"),
+        },
+        {
+          name: "Hotels",
+          path: "/properties/hotels",
+          subDropdown: getSubDropdown("hotels"),
+        },
+        {
+          name: "Party Venues",
+          path: "/properties/party-venues",
+          subDropdown: getSubDropdown("party venues"),
+        },
+        {
+          name: "Villas",
+          path: "/properties/villas",
+          subDropdown: getSubDropdown("villas"),
+        },
       ],
     },
     { name: "Services", path: getSectionPath("services") },
@@ -95,7 +124,6 @@ const Navbar = () => {
                 </Link>
               )}
 
-              {/* Dropdown */}
               {link.dropdown && (
                 <AnimatePresence>
                   {activeDropdown === link.name && (
@@ -104,16 +132,51 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-48 bg-orbit-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden py-2"
+                      className="absolute top-full left-0 mt-2 w-56 bg-orbit-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-2"
                     >
                       {link.dropdown.map((item) => (
-                        <Link
+                        <div
                           key={item.name}
-                          to={item.path}
-                          className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                          className="relative group/sub"
+                          onMouseEnter={() => setActiveSubDropdown(item.name)}
+                          onMouseLeave={() => setActiveSubDropdown(null)}
                         >
-                          {item.name}
-                        </Link>
+                          <Link
+                            to={item.path}
+                            className="px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors flex justify-between items-center"
+                          >
+                            <span>{item.name}</span>
+                            {item.subDropdown &&
+                              item.subDropdown.length > 0 && (
+                                <ChevronRight className="w-4 h-4 opacity-50" />
+                              )}
+                          </Link>
+
+                          {/* Nested Dropdown */}
+                          {item.subDropdown && item.subDropdown.length > 0 && (
+                            <AnimatePresence>
+                              {activeSubDropdown === item.name && (
+                                <motion.div
+                                  initial={{ opacity: 0, x: 10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  exit={{ opacity: 0, x: 10 }}
+                                  transition={{ duration: 0.2 }}
+                                  className="absolute top-0 left-full ml-1 w-64 bg-orbit-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-2 max-h-[60vh] overflow-y-auto custom-scrollbar"
+                                >
+                                  {item.subDropdown.map((subItem) => (
+                                    <Link
+                                      key={subItem.name}
+                                      to={subItem.path}
+                                      className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          )}
+                        </div>
                       ))}
                     </motion.div>
                   )}
@@ -157,16 +220,80 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                   {link.dropdown && (
-                    <div className="flex flex-col items-center mt-2 space-y-2">
+                    <div className="flex flex-col items-center mt-2 space-y-2 w-full">
                       {link.dropdown.map((item) => (
-                        <Link
+                        <div
                           key={item.name}
-                          to={item.path}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="text-gray-400 text-sm"
+                          className="flex flex-col items-center w-full"
                         >
-                          {item.name}
-                        </Link>
+                          <div className="flex items-center justify-center w-full relative">
+                            <Link
+                              to={item.path}
+                              onClick={() => {
+                                if (
+                                  !item.subDropdown ||
+                                  item.subDropdown.length === 0
+                                ) {
+                                  setIsMobileMenuOpen(false);
+                                }
+                              }}
+                              className="text-gray-400 text-sm py-2"
+                            >
+                              {item.name}
+                            </Link>
+                            {/* Toggle Sub-dropdown button */}
+                            {item.subDropdown &&
+                              item.subDropdown.length > 0 && (
+                                <button
+                                  onClick={() =>
+                                    setExpandedMobileCategory(
+                                      expandedMobileCategory === item.name
+                                        ? null
+                                        : item.name,
+                                    )
+                                  }
+                                  className="absolute right-8 text-gray-400 p-2"
+                                >
+                                  <motion.div
+                                    animate={{
+                                      rotate:
+                                        expandedMobileCategory === item.name
+                                          ? 180
+                                          : 0,
+                                    }}
+                                    transition={{ duration: 0.2 }}
+                                  >
+                                    <ChevronDown className="w-4 h-4" />
+                                  </motion.div>
+                                </button>
+                              )}
+                          </div>
+
+                          {/* Mobile Nested Sub-dropdown */}
+                          <AnimatePresence>
+                            {item.subDropdown &&
+                              expandedMobileCategory === item.name && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="overflow-hidden flex flex-col items-center space-y-2 mt-1 w-full bg-white/5 rounded-lg py-2"
+                                >
+                                  {item.subDropdown.map((subItem) => (
+                                    <Link
+                                      key={subItem.name}
+                                      to={subItem.path}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="text-gray-500 text-xs py-1 hover:text-orbit-gold transition-colors"
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  ))}
+                                </motion.div>
+                              )}
+                          </AnimatePresence>
+                        </div>
                       ))}
                     </div>
                   )}
