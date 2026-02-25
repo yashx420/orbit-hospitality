@@ -49,7 +49,7 @@ const AboutPage = () => {
         description="Discover the story behind Orbit Hospitality. We blend modern luxury with traditional warmth across our premium villas, hotels, and serviced apartments in Bangalore."
       />
 
-      <div className="bg-orbit-dark min-h-screen pt-24 pb-16 overflow-hidden">
+      <div className="bg-orbit-dark min-h-screen pb-16 overflow-hidden">
         {/* Hero Section */}
         <section className="relative h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
           <motion.div
