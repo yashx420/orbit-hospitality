@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Star, TrendingUp, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import SEO from "../components/SEO";
 import Services from "../components/sections/Services"; // Reuse existing services
 import { projects } from "../data/projects";
 import { getAmenityIcon } from "../utils/amenityIcons";
+import { CheckCircle2, Loader2 } from "lucide-react";
 
 // Extract unique amenities for the ticker
 const allAmenities = Array.from(new Set(projects.flatMap((p) => p.amenities)));
@@ -47,6 +48,38 @@ const AmenitiesTicker = () => {
 };
 
 const ListYourProperty = () => {
+  const [formState, setFormState] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState("submitting");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/info@orbithotels.in",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
+
+      if (response.ok) {
+        setFormState("success");
+        form.reset();
+        setTimeout(() => setFormState("idle"), 5000); // Reset after 5s
+      } else {
+        setFormState("error");
+      }
+    } catch (error) {
+      setFormState("error");
+    }
+  };
+
   return (
     <section className="py-16 md:py-24 bg-orbit-dark relative overflow-hidden z-20">
       <div className="container mx-auto px-4 md:px-6">
@@ -111,7 +144,7 @@ const ListYourProperty = () => {
               className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 font-bold text-orbit-dark bg-orbit-gold rounded-full overflow-hidden transition-all hover:scale-105"
             >
               <span className="relative flex items-center gap-2 text-sm md:text-base">
-                List Your Property
+                Contact Us
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
@@ -126,103 +159,130 @@ const ListYourProperty = () => {
             className="lg:w-1/2 relative"
           >
             <div className="absolute -inset-4 bg-orbit-gold/20 blur-[100px] rounded-full pointer-events-none" />
-            <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
-              <div className="absolute inset-0 bg-gradient-to-t from-orbit-dark/90 via-transparent to-transparent z-10" />
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] max-w-lg mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-t from-orbit-dark/95 via-orbit-dark/40 to-transparent z-10" />
               <img
                 src="/projects/tulip-villa/1-2.jpg"
                 alt="Luxury Property Management"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 p-6 md:p-8 z-20 flex flex-col justify-end">
-                <div className="bg-orbit-dark/60 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden">
+                <div className="bg-orbit-dark/70 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden transition-all duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-orbit-gold/10 to-transparent pointer-events-none" />
 
                   <div className="relative z-10">
                     <div className="text-center mb-6">
                       <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-2">
-                        Transform Your Property
+                        Get Started
                       </h3>
                       <p className="text-sm md:text-base text-gray-300">
-                        Partner with us to unlock premium rental returns
+                        Leave your details and we'll be in touch!
                       </p>
                     </div>
 
-                    <form
-                      action="https://formsubmit.co/info@orbithotels.in"
-                      method="POST"
-                      className="space-y-4"
-                    >
-                      {/* FormSubmit Configuration */}
-                      <input
-                        type="hidden"
-                        name="_subject"
-                        value="New Property Listing Inquiry!"
-                      />
-                      <input type="hidden" name="_captcha" value="false" />
-                      <input
-                        type="hidden"
-                        name="_next"
-                        value="https://orbithotels.in"
-                      />
-                      <input
-                        type="text"
-                        name="_honey"
-                        style={{ display: "none" }}
-                      />
-
-                      <div className="grid grid-cols-2 gap-4">
-                        <input
-                          type="text"
-                          name="First Name"
-                          placeholder="First Name"
-                          required
-                          className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
-                        />
-                        <input
-                          type="text"
-                          name="Last Name"
-                          placeholder="Last Name"
-                          required
-                          className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
-                        />
-                      </div>
-
-                      <input
-                        type="email"
-                        name="Email"
-                        placeholder="Email Address"
-                        required
-                        className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
-                      />
-
-                      <input
-                        type="tel"
-                        name="Phone"
-                        placeholder="Phone Number"
-                        required
-                        className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
-                      />
-
-                      <input
-                        type="text"
-                        name="Location"
-                        placeholder="Property Location"
-                        required
-                        className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
-                      />
-
-                      <button
-                        type="submit"
-                        className="w-full bg-[#C1A173] hover:bg-[#A9895E] text-orbit-dark font-bold py-4 rounded-xl transition-colors mt-2 text-lg"
+                    {formState === "success" ? (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="flex flex-col items-center justify-center py-8 text-center"
                       >
-                        Start Your Journey
-                      </button>
+                        <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 border border-green-500/30">
+                          <CheckCircle2 className="w-8 h-8 text-green-400" />
+                        </div>
+                        <h4 className="text-xl font-bold text-white mb-2">
+                          Thank You!
+                        </h4>
+                        <p className="text-gray-300">
+                          Your details have been received. Our team will contact
+                          you shortly.
+                        </p>
+                      </motion.div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* FormSubmit Configuration */}
+                        <input
+                          type="hidden"
+                          name="_subject"
+                          value="New Property Listing Inquiry!"
+                        />
+                        <input type="hidden" name="_template" value="box" />
+                        <input
+                          type="text"
+                          name="_honey"
+                          style={{ display: "none" }}
+                        />
 
-                      <p className="text-center text-gray-300 text-sm mt-4 flex items-center justify-center gap-1">
-                        <span className="text-orbit-gold">✓</span> Quick
-                        Response
-                      </p>
-                    </form>
+                        <div className="grid grid-cols-2 gap-4">
+                          <input
+                            type="text"
+                            name="First Name"
+                            placeholder="First Name"
+                            required
+                            disabled={formState === "submitting"}
+                            className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                          />
+                          <input
+                            type="text"
+                            name="Last Name"
+                            placeholder="Last Name"
+                            required
+                            disabled={formState === "submitting"}
+                            className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                          />
+                        </div>
+
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Email Address"
+                          required
+                          disabled={formState === "submitting"}
+                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                        />
+
+                        <input
+                          type="tel"
+                          name="Phone"
+                          placeholder="Phone Number"
+                          required
+                          disabled={formState === "submitting"}
+                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                        />
+
+                        <input
+                          type="text"
+                          name="Location"
+                          placeholder="Property Location (City/Area)"
+                          required
+                          disabled={formState === "submitting"}
+                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                        />
+
+                        {formState === "error" && (
+                          <p className="text-red-400 text-sm text-center">
+                            Something went wrong. Please try again.
+                          </p>
+                        )}
+
+                        <button
+                          type="submit"
+                          disabled={formState === "submitting"}
+                          className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-orbit-gold/20 transition-all duration-300 flex items-center justify-center gap-2 mt-4 disabled:opacity-70"
+                        >
+                          {formState === "submitting" ? (
+                            <>
+                              <Loader2 className="w-5 h-5 animate-spin" />
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              Submit Details
+                              <ArrowRight className="w-5 h-5" />
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    )}
                   </div>
                 </div>
               </div>
