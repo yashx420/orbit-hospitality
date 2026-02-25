@@ -192,14 +192,25 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
+                  />
+                </div>
               </div>
 
               <div className="space-y-3">

@@ -143,15 +143,27 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400 uppercase tracking-wider font-semibold">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
-                    placeholder="john@example.com"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm text-gray-400 uppercase tracking-wider font-semibold">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-gray-400 uppercase tracking-wider font-semibold">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
+                      placeholder="+91"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2">
