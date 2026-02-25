@@ -54,7 +54,11 @@ const Contact = () => {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542314831-c6a4d14d8c85?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/hall.jpeg')",
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-orbit-dark/70 via-orbit-dark/50 to-orbit-dark" />
 

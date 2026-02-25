@@ -4,6 +4,7 @@ import Services from "../components/sections/Services";
 import Stats from "../components/sections/Stats";
 import RoomRibbon from "../components/sections/RoomRibbon";
 import Testimonials from "../components/sections/Testimonials";
+import BookingFlow from "../components/sections/BookingFlow";
 import Contact from "../components/sections/Contact";
 import SEO from "../components/SEO";
 
@@ -11,7 +12,7 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Luxury Stays & Experiences"
+        title="Orbit Hospitality"
         description="Experience the epitome of luxury with Orbit Hospitality's exclusive villas, hotels, and serviced apartments in Bangalore."
       />
       <Hero />
@@ -20,6 +21,7 @@ const Home = () => {
       <RoomRibbon />
       <Testimonials />
       <Stats />
+      <BookingFlow />
       <Contact />
     </>
   );
