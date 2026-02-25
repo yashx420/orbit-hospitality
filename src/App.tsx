@@ -12,6 +12,7 @@ const Properties = lazy(() => import("./pages/Properties"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 
 // Loading fallback specifically for React Router Suspense
 const PageLoadingFallback = () => (
@@ -30,6 +31,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
               <Route path="/project/:id" element={<ProjectDetails />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/properties/:category" element={<Properties />} />

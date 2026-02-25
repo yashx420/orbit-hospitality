@@ -34,10 +34,6 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen]);
 
-  const getSectionPath = (id: string) => {
-    return location.pathname === "/" ? `#${id}` : `/#${id}`;
-  };
-
   const scrollToSection = (e: React.MouseEvent, path: string) => {
     const isHash = path.startsWith("#") || path.includes("/#");
     if (isHash && location.pathname === "/") {
@@ -86,7 +82,7 @@ const Navbar = () => {
         },
       ],
     },
-    { name: "Services", path: getSectionPath("services") },
+    { name: "Services", path: "/services" },
     { name: "Blogs", path: "/blogs" },
     { name: "Contact", path: "/contact" },
   ];
