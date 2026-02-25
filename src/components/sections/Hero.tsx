@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   motion,
   useScroll,
@@ -133,6 +134,21 @@ const Hero = () => {
           >
             Hospitality Redefined
           </motion.p>
+
+          {/* Mobile-only CTA */}
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="md:hidden pt-4"
+          >
+            <Link
+              to="/contact"
+              className="inline-block bg-orbit-gold text-white font-bold px-10 py-4 rounded-full text-lg shadow-lg shadow-orbit-gold/30 hover:bg-white hover:text-orbit-dark transition-all active:scale-95"
+            >
+              Enquire Now
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 

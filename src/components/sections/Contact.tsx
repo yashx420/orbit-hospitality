@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-32 bg-orbit-dark relative overflow-hidden rounded-b-[3rem]"
+      className="py-32 bg-orbit-dark relative overflow-hidden rounded-b-[3rem] hidden md:block"
     >
       {/* Background Elements - Crazier & Slower */}
       <motion.div
