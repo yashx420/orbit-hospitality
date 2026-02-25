@@ -58,7 +58,7 @@ const AboutPage = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-b from-orbit-dark/70 via-orbit-dark/50 to-orbit-dark z-10" />
             <img
-              src="/projects/Peace Lily/1-3.jpg"
+              src="/projects/peace-lily/1-3.jpg"
               alt="Orbit Hospitality Luxury Property"
               loading="lazy"
               className="w-full h-full object-cover"
