@@ -47,7 +47,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: "About", path: getSectionPath("about") },
+    { name: "About", path: "/about" },
     {
       name: "Properties",
       path: "/properties/all",
