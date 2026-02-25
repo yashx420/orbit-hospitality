@@ -1,12 +1,6 @@
 import { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  ArrowRight,
-  Star,
-  TrendingUp,
-  ShieldCheck,
-  Home as HomeIcon,
-} from "lucide-react";
+import { ArrowRight, Star, TrendingUp, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import Services from "../components/sections/Services"; // Reuse existing services
@@ -139,30 +133,101 @@ const ListYourProperty = () => {
                 alt="Luxury Property Management"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 z-20">
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/20">
-                  <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-2 flex items-center gap-2">
-                    <HomeIcon className="w-4 h-4 md:w-5 md:h-5 text-orbit-gold shrink-0" />
-                    The Onboarding Journey
-                  </h4>
-                  <ul className="text-sm text-gray-300 space-y-2">
-                    <li className="flex gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-orbit-gold mt-1.5 shrink-0" />{" "}
-                      Expert Consultation & Valuation
-                    </li>
-                    <li className="flex gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-orbit-gold mt-1.5 shrink-0" />{" "}
-                      Professional Styling & Photography
-                    </li>
-                    <li className="flex gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-orbit-gold mt-1.5 shrink-0" />{" "}
-                      Premium Tenant Acquisition
-                    </li>
-                    <li className="flex gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-orbit-gold mt-1.5 shrink-0" />{" "}
-                      Operational Excellence & Payouts
-                    </li>
-                  </ul>
+              <div className="absolute inset-0 p-6 md:p-8 z-20 flex flex-col justify-end">
+                <div className="bg-orbit-dark/60 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orbit-gold/10 to-transparent pointer-events-none" />
+
+                  <div className="relative z-10">
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-2">
+                        Transform Your Property
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-300">
+                        Partner with us to unlock premium rental returns
+                      </p>
+                    </div>
+
+                    <form
+                      action="https://formsubmit.co/info@orbithotels.in"
+                      method="POST"
+                      className="space-y-4"
+                    >
+                      {/* FormSubmit Configuration */}
+                      <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Property Listing Inquiry!"
+                      />
+                      <input type="hidden" name="_captcha" value="false" />
+                      <input
+                        type="hidden"
+                        name="_next"
+                        value={
+                          typeof window !== "undefined"
+                            ? window.location.href
+                            : ""
+                        }
+                      />
+                      <input
+                        type="text"
+                        name="_honey"
+                        style={{ display: "none" }}
+                      />
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <input
+                          type="text"
+                          name="First Name"
+                          placeholder="First Name"
+                          required
+                          className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
+                        />
+                        <input
+                          type="text"
+                          name="Last Name"
+                          placeholder="Last Name"
+                          required
+                          className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
+                        />
+                      </div>
+
+                      <input
+                        type="email"
+                        name="Email"
+                        placeholder="Email Address"
+                        required
+                        className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
+                      />
+
+                      <input
+                        type="tel"
+                        name="Phone"
+                        placeholder="Phone Number"
+                        required
+                        className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
+                      />
+
+                      <input
+                        type="text"
+                        name="Location"
+                        placeholder="Property Location"
+                        required
+                        className="w-full bg-white text-orbit-dark placeholder:text-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orbit-gold transition-all"
+                      />
+
+                      <button
+                        type="submit"
+                        className="w-full bg-[#C1A173] hover:bg-[#A9895E] text-orbit-dark font-bold py-4 rounded-xl transition-colors mt-2 text-lg"
+                      >
+                        Start Your Journey
+                      </button>
+
+                      <p className="text-center text-gray-300 text-sm mt-4 flex items-center justify-center gap-1">
+                        <span className="text-orbit-gold">✓</span> Quick
+                        Response
+                      </p>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
