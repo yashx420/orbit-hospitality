@@ -119,7 +119,18 @@ const Contact = () => {
                 <Send size={150} className="text-white transform rotate-12" />
               </div>
 
-              <form className="space-y-6 relative z-10">
+              <form
+                action="https://formsubmit.co/info@orbithotels.in"
+                method="POST"
+                className="space-y-6 relative z-10"
+              >
+                {/* Anti-spam & Configuration hidden fields */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New message from Orbit Hospitality Home Page!"
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm text-gray-400 uppercase tracking-wider font-semibold">
@@ -127,6 +138,8 @@ const Contact = () => {
                     </label>
                     <input
                       type="text"
+                      name="First Name"
+                      required
                       className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
                       placeholder="John"
                     />
@@ -137,6 +150,8 @@ const Contact = () => {
                     </label>
                     <input
                       type="text"
+                      name="Last Name"
+                      required
                       className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
                       placeholder="Doe"
                     />
@@ -150,6 +165,8 @@ const Contact = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      required
                       className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
                       placeholder="john@example.com"
                     />
@@ -160,6 +177,8 @@ const Contact = () => {
                     </label>
                     <input
                       type="tel"
+                      name="Phone"
+                      required
                       className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70"
                       placeholder="+91"
                     />
@@ -171,6 +190,8 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
+                    required
                     rows={4}
                     className="w-full bg-orbit-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orbit-gold transition-colors focus:bg-orbit-dark/70 resize-none"
                     placeholder="How can we help you?"
@@ -178,6 +199,7 @@ const Contact = () => {
                 </div>
 
                 <motion.button
+                  type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold uppercase tracking-widest py-4 rounded-xl hover:shadow-lg hover:shadow-orbit-gold/20 transition-all duration-300 flex items-center justify-center space-x-2 group"

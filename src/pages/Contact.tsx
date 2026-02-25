@@ -99,7 +99,17 @@ const Contact = () => {
               Send us a message
             </h2>
 
-            <form className="space-y-8 relative z-10">
+            <form
+              action="https://formsubmit.co/info@orbithotels.in"
+              method="POST"
+              className="space-y-8 relative z-10"
+            >
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from Orbit Hospitality Contact Page!"
+              />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
@@ -107,6 +117,8 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="First Name"
+                    required
                     className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
                   />
                 </div>
@@ -116,6 +128,8 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="Last Name"
+                    required
                     className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
                   />
                 </div>
@@ -128,6 +142,8 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    required
                     className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
                   />
                 </div>
@@ -137,6 +153,8 @@ const Contact = () => {
                   </label>
                   <input
                     type="tel"
+                    name="Phone"
+                    required
                     className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
                   />
                 </div>
@@ -147,12 +165,15 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  required
                   rows={6}
                   className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors resize-none custom-scrollbar"
                 ></textarea>
               </div>
 
               <motion.button
+                type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold text-xl uppercase tracking-[0.2em] py-6 rounded-2xl hover:shadow-[0_0_40px_rgba(234,179,8,0.3)] transition-all duration-300 flex items-center justify-center space-x-3 mt-4 group"
