@@ -57,7 +57,7 @@ const Contact = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/Orbit%20Serviced%20Apartments/Peace%20Lily_Smart-Lit%20Open%20Terrace%20Stay_3BHK_AC_BBQ/hall.jpeg')",
+              "url('/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/hall.jpeg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-orbit-dark/70 via-orbit-dark/50 to-orbit-dark" />
