@@ -19,9 +19,9 @@ const topAmenities = allAmenities.slice(0, 15);
 
 const AmenitiesTicker = () => {
   return (
-    <div className="w-full bg-orbit-gold/5 py-12 overflow-hidden relative border-y border-orbit-gold/10 scroll-m-0">
-      <div className="container mx-auto px-6 mb-8 text-center">
-        <h3 className="text-3xl font-serif font-bold text-white">
+    <div className="w-full bg-orbit-gold/5 py-8 md:py-12 overflow-hidden relative border-y border-orbit-gold/10 scroll-m-0">
+      <div className="container mx-auto px-4 md:px-6 mb-8 text-center">
+        <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
           Our Top <span className="text-orbit-gold">Amenities</span>
         </h3>
       </div>
@@ -36,10 +36,13 @@ const AmenitiesTicker = () => {
         {[...topAmenities, ...topAmenities].map((amenity, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-3 bg-white/5 border border-white/10 px-8 py-5 rounded-2xl text-orbit-gold shadow-lg backdrop-blur-sm whitespace-nowrap"
+            className="flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-6 py-4 md:px-8 md:py-5 rounded-2xl text-orbit-gold shadow-lg backdrop-blur-sm whitespace-nowrap"
           >
-            {getAmenityIcon(amenity, "w-6 h-6 flex-shrink-0 text-orbit-gold")}
-            <span className="text-lg font-semibold tracking-wide text-white">
+            {getAmenityIcon(
+              amenity,
+              "w-5 h-5 md:w-6 md:h-6 flex-shrink-0 text-orbit-gold",
+            )}
+            <span className="text-base md:text-lg font-semibold tracking-wide text-white">
               {amenity}
             </span>
           </div>
@@ -51,9 +54,9 @@ const AmenitiesTicker = () => {
 
 const ListYourProperty = () => {
   return (
-    <section className="py-24 bg-orbit-dark relative overflow-hidden z-20">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+    <section className="py-16 md:py-24 bg-orbit-dark relative overflow-hidden z-20">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -62,13 +65,13 @@ const ListYourProperty = () => {
             transition={{ duration: 0.8 }}
             className="lg:w-1/2"
           >
-            <span className="text-orbit-gold font-sans uppercase tracking-[0.2em] text-sm font-bold block mb-4">
+            <span className="text-orbit-gold font-sans uppercase tracking-[0.2em] text-xs md:text-sm font-bold block mb-3 md:mb-4">
               Partner With Us
             </span>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight">
               List Your <span className="text-orbit-gold">Luxury Property</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
               Unlock the true potential of your real estate. We provide premium
               hospitality management, ensuring your property is flawlessly
               maintained while optimizing revenue through our elite guest
@@ -94,14 +97,16 @@ const ListYourProperty = () => {
                 },
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-orbit-gold/10 flex items-center justify-center shrink-0 border border-orbit-gold/20">
-                    <item.icon className="w-6 h-6 text-orbit-gold" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-orbit-gold/10 flex items-center justify-center shrink-0 border border-orbit-gold/20">
+                    <item.icon className="w-5 h-5 md:w-6 md:h-6 text-orbit-gold" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-1">
+                    <h4 className="text-lg md:text-xl font-bold text-white mb-1">
                       {item.title}
                     </h4>
-                    <p className="text-gray-400">{item.desc}</p>
+                    <p className="text-sm md:text-base text-gray-400">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -109,11 +114,11 @@ const ListYourProperty = () => {
 
             <Link
               to="/contact"
-              className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-orbit-dark bg-orbit-gold rounded-full overflow-hidden transition-all hover:scale-105"
+              className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 font-bold text-orbit-dark bg-orbit-gold rounded-full overflow-hidden transition-all hover:scale-105"
             >
-              <span className="relative flex items-center gap-2">
+              <span className="relative flex items-center gap-2 text-sm md:text-base">
                 List Your Property
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
           </motion.div>
@@ -134,10 +139,10 @@ const ListYourProperty = () => {
                 alt="Luxury Property Management"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20">
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                  <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                    <HomeIcon className="w-5 h-5 text-orbit-gold" />
+              <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 z-20">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/20">
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-2 flex items-center gap-2">
+                    <HomeIcon className="w-4 h-4 md:w-5 md:h-5 text-orbit-gold shrink-0" />
                     The Onboarding Journey
                   </h4>
                   <ul className="text-sm text-gray-300 space-y-2">
@@ -185,7 +190,7 @@ const ServicesPage = () => {
       />
       <div className="bg-orbit-dark min-h-screen">
         {/* Parallax Hero */}
-        <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[60dvh] md:h-[70vh] flex items-center justify-center overflow-hidden">
           <motion.div
             style={{ y, opacity }}
             className="absolute inset-0 w-full h-full"
@@ -199,12 +204,12 @@ const ServicesPage = () => {
             />
           </motion.div>
 
-          <div className="relative z-20 container mx-auto px-6 text-center mt-16">
+          <div className="relative z-20 container mx-auto px-4 md:px-6 text-center mt-20 md:mt-16">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-4 md:mb-6"
             >
               Elevated{" "}
               <span className="italic font-light text-orbit-gold">Living</span>
@@ -213,7 +218,7 @@ const ServicesPage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light"
             >
               Discover unparalleled hospitality, top-tier amenities, and premium
               property management services.
