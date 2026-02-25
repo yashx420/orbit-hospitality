@@ -5,6 +5,7 @@ import Stats from "../components/sections/Stats";
 import RoomRibbon from "../components/sections/RoomRibbon";
 import Testimonials from "../components/sections/Testimonials";
 import BookingFlow from "../components/sections/BookingFlow";
+import HelpSection from "../components/sections/HelpSection";
 import Contact from "../components/sections/Contact";
 import SEO from "../components/SEO";
 
@@ -22,6 +23,7 @@ const Home = () => {
       <Testimonials />
       <Stats />
       <BookingFlow />
+      <HelpSection />
       <Contact />
     </>
   );
