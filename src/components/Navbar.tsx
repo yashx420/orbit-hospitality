@@ -93,10 +93,10 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full w-[95%] max-w-5xl ${
+        className={`fixed inset-x-0 mx-auto z-50 transition-all duration-300 rounded-full w-[95%] max-w-5xl ${
           isScrolled
             ? "top-4 bg-orbit-dark/90 backdrop-blur-md shadow-lg border border-white/10 px-4 md:px-6 py-3"
-            : "top-6 bg-transparent px-4 md:px-6 py-4"
+            : "top-6 bg-transparent border border-transparent px-4 md:px-6 py-4"
         }`}
       >
         <div className="flex justify-between items-center gap-4 md:gap-8">
