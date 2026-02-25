@@ -162,11 +162,7 @@ const ListYourProperty = () => {
                       <input
                         type="hidden"
                         name="_next"
-                        value={
-                          typeof window !== "undefined"
-                            ? window.location.href
-                            : ""
-                        }
+                        value="https://orbithotels.in"
                       />
                       <input
                         type="text"
