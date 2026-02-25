@@ -1,80 +1,13 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import {
-  Phone,
-  Mail,
-  Navigation,
-  Send,
-  Wifi,
-  Car,
-  Tv,
-  Snowflake,
-  Coffee,
-  Utensils,
-  Droplets,
-  Grid,
-  Fan,
-  Wind,
-  Trees,
-  Flame,
-  Bed,
-  Refrigerator,
-  Zap,
-} from "lucide-react";
+import { Phone, Mail, Navigation, Send } from "lucide-react";
 import SEO from "../components/SEO";
 import { projects } from "../data/projects";
+import { getAmenityIcon } from "../utils/amenityIcons";
 
 // Extract unique amenities for the ticker
 const allAmenities = Array.from(new Set(projects.flatMap((p) => p.amenities)));
-
-const getAmenityIcon = (amenity: string) => {
-  const lower = amenity.toLowerCase();
-  if (lower.includes("wi-fi") || lower.includes("wifi")) return Wifi;
-  if (lower.includes("parking")) return Car;
-  if (lower.includes("tv")) return Tv;
-  if (lower.includes("ac") || lower.includes("air conditioning"))
-    return Snowflake;
-  if (lower.includes("coffee") || lower.includes("tea")) return Coffee;
-  if (lower.includes("kitchen") || lower.includes("dining")) return Utensils;
-  if (
-    lower.includes("water") ||
-    lower.includes("pool") ||
-    lower.includes("shower") ||
-    lower.includes("geyser")
-  )
-    return Droplets;
-  if (lower.includes("balcony") || lower.includes("terrace")) return Grid;
-  if (lower.includes("fan")) return Fan;
-  if (lower.includes("ventilation")) return Wind;
-  if (lower.includes("garden") || lower.includes("lawn")) return Trees;
-  if (
-    lower.includes("bbq") ||
-    lower.includes("barbeque") ||
-    lower.includes("fire")
-  )
-    return Flame;
-  if (
-    lower.includes("bed") ||
-    lower.includes("blanket") ||
-    lower.includes("pillow")
-  )
-    return Bed;
-  if (lower.includes("refrigerator") || lower.includes("fridge"))
-    return Refrigerator;
-  if (
-    lower.includes("power") ||
-    lower.includes("electricity") ||
-    lower.includes("inverter")
-  )
-    return Zap;
-  return null;
-};
-
-// Only keep amenities that have a specific mapped icon
-const filteredAmenities = allAmenities.filter(
-  (a) => getAmenityIcon(a) !== null,
-);
-const topAmenities = filteredAmenities.slice(0, 15);
+const topAmenities = allAmenities.slice(0, 15);
 
 const AmenitiesTicker = () => {
   return (
@@ -87,21 +20,17 @@ const AmenitiesTicker = () => {
         transition={{ ease: "linear", duration: 45, repeat: Infinity }}
         className="flex gap-6 w-max items-center px-4"
       >
-        {[...topAmenities, ...topAmenities].map((amenity, idx) => {
-          const Icon = getAmenityIcon(amenity);
-          if (!Icon) return null;
-          return (
-            <div
-              key={idx}
-              className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl text-orbit-gold shadow-lg backdrop-blur-sm whitespace-nowrap"
-            >
-              <Icon className="w-5 h-5 flex-shrink-0" />
-              <span className="text-base font-semibold tracking-wide text-white">
-                {amenity}
-              </span>
-            </div>
-          );
-        })}
+        {[...topAmenities, ...topAmenities].map((amenity, idx) => (
+          <div
+            key={idx}
+            className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl text-orbit-gold shadow-lg backdrop-blur-sm whitespace-nowrap"
+          >
+            {getAmenityIcon(amenity, "w-5 h-5 flex-shrink-0 text-orbit-gold")}
+            <span className="text-base font-semibold tracking-wide text-white">
+              {amenity}
+            </span>
+          </div>
+        ))}
       </motion.div>
     </div>
   );
