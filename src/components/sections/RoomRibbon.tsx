@@ -5,7 +5,7 @@ const collections = [
   {
     id: "service-apartments",
     title: "Service Apartments",
-    image: "/projects/White lotus/6-2.jpg",
+    image: "/projects/white-lotus/6-2.jpg",
     desc: "Comfort & Convenience",
   },
   {
@@ -19,13 +19,13 @@ const collections = [
     id: "party-venues",
     title: "Party Venues",
     image:
-      "/Orbit Party Venue/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/07d027a6-3ae8-4bfd-b61d-ac1e2f57eb1c (1).jpeg",
+      "/orbit-party-venue/white-lotus-penthouse_openterrace_3bhk_ac_bbq_/hall.jpeg",
     desc: "Celebrate in Style",
   },
   {
     id: "villas",
     title: "Villas",
-    image: "/projects/Tulip Villa/1-2.jpg",
+    image: "/projects/tulip-villa/1-2.jpg",
     desc: "Luxury Private Stays",
   },
 ];

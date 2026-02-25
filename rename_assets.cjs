@@ -4,22 +4,35 @@ const path = require("path");
 const publicDir = path.join(__dirname, "public");
 const dataFile = path.join(__dirname, "src", "data", "projects.ts");
 const contactFile = path.join(__dirname, "src", "pages", "Contact.tsx");
+const ribbonFile = path.join(
+  __dirname,
+  "src",
+  "components",
+  "sections",
+  "RoomRibbon.tsx",
+);
 
-let dataContent = fs.readFileSync(dataFile, "utf8");
-let contactContent = fs.readFileSync(contactFile, "utf8");
+const targetDirs = [
+  "Orbit Serviced Apartments",
+  "Orbit Villas",
+  "Orbit Party Venue",
+  "projects",
+];
+const filesToUpdate = [dataFile, contactFile, ribbonFile];
+
+let fileContents = filesToUpdate.map((file) => fs.readFileSync(file, "utf8"));
 
 function slugify(text) {
   return text
     .toString()
     .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+    .trim()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
 }
-
-const targetDirs = ["Orbit Serviced Apartments", "Orbit Villas"];
 
 targetDirs.forEach((subDir) => {
   const oldDirPath = path.join(publicDir, subDir);
@@ -58,6 +71,10 @@ targetDirs.forEach((subDir) => {
 
       // Copy file instead of renaming to avoid EPERM on open directory handles in Windows
       if (!fs.existsSync(newImgPath)) {
+        fs.copyFileSync(
+          oldImgPath,
+          newImgName.includes("(") ? oldImgPath : oldImgPath,
+        ); // No-op but safe
         fs.copyFileSync(oldImgPath, newImgPath);
       }
 
@@ -65,13 +82,17 @@ targetDirs.forEach((subDir) => {
       const oldUrl = `/${subDir}/${propDir}/${img}`;
       const newUrl = `/${newSubDir}/${newPropDir}/${newImgName}`;
 
-      dataContent = dataContent.split(oldUrl).join(newUrl);
-      contactContent = contactContent.split(oldUrl).join(newUrl);
+      fileContents = fileContents.map((content) =>
+        content.split(oldUrl).join(newUrl),
+      );
     });
   });
 });
 
-fs.writeFileSync(dataFile, dataContent, "utf8");
-fs.writeFileSync(contactFile, contactContent, "utf8");
+filesToUpdate.forEach((file, index) => {
+  fs.writeFileSync(file, fileContents[index], "utf8");
+});
 
-console.log("Finished copying and renaming assets. Code paths updated.");
+console.log(
+  "Finished copying and renaming assets. All references in components and data files updated.",
+);
