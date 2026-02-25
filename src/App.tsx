@@ -8,23 +8,26 @@ import Properties from "./pages/Properties";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 import AboutPage from "./pages/AboutPage";
+import Preloader from "./components/Preloader";
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/properties/:category" element={<Properties />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/:id" element={<BlogDetails />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <Preloader>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/properties/:category" element={<Properties />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:id" element={<BlogDetails />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </Preloader>
   );
 }
 

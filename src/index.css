@@ -38,12 +38,41 @@ html {
   background: #c5a059;
 }
 
-/* Safari and iOS Backdrop Blur Performance Fixes */
+/* =========================================
+   Safari, iOS & Cross-Browser Optimizations
+   ========================================= */
+
+/* Prevent iOS rubber-band scroll bouncing which breaks fixed layouts */
+body {
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hardware Acceleration & Paint fixes for heavy blur nodes */
 .backdrop-blur-sm,
 .backdrop-blur-md,
 .backdrop-blur-lg,
-.backdrop-blur-xl {
+.backdrop-blur-xl,
+.backdrop-blur-2xl {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  will-change: filter, backdrop-filter;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: filter, backdrop-filter, transform;
+}
+
+/* Text clipping fixes for older Safari */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Force hardware acceleration on 3D motion divs if needed */
+.perspective-1000,
+.perspective-500 {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
