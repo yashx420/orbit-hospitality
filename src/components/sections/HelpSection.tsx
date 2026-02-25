@@ -68,7 +68,7 @@ const HelpSection = () => {
           opacity: [0.1, 0.3, 0.1],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orbit-gold/20 rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orbit-gold/20 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"
       />
       <motion.div
         animate={{
@@ -81,7 +81,7 @@ const HelpSection = () => {
           ease: "easeInOut",
           delay: 2,
         }}
-        className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none"
+        className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none will-change-transform transform-gpu"
       />
 
       <div className="container mx-auto px-6 relative z-10">

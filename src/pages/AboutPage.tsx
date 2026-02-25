@@ -60,6 +60,7 @@ const AboutPage = () => {
             <img
               src="/projects/Peace Lily/1-3.jpg"
               alt="Orbit Hospitality Luxury Property"
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -162,6 +163,7 @@ const AboutPage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop"
                   alt="Luxury Interior Details"
+                  loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
@@ -175,6 +177,7 @@ const AboutPage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
                   alt="Hotel Lobby"
+                  loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
@@ -188,6 +191,7 @@ const AboutPage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?q=80&w=2062&auto=format&fit=crop"
                   alt="Premium Suite"
+                  loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>

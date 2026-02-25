@@ -168,6 +168,7 @@ const StickySection = ({ feature, index }: { feature: any; index: number }) => {
           <img
             src={feature.img}
             alt="bg"
+            loading="lazy"
             className="w-full h-full object-cover brightness-[0.3]"
           />
         </motion.div>
