@@ -249,6 +249,63 @@ const ListYourProperty = () => {
                           className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
                         />
 
+                        <div className="relative">
+                          <select
+                            name="Property Category"
+                            required
+                            defaultValue=""
+                            disabled={formState === "submitting"}
+                            className="w-full bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 appearance-none"
+                          >
+                            <option
+                              value=""
+                              disabled
+                              className="bg-orbit-dark text-gray-400"
+                            >
+                              Select Property Category
+                            </option>
+                            <option
+                              value="Villas"
+                              className="bg-orbit-dark text-white"
+                            >
+                              Villas
+                            </option>
+                            <option
+                              value="Hotels"
+                              className="bg-orbit-dark text-white"
+                            >
+                              Hotels
+                            </option>
+                            <option
+                              value="Service Apartments"
+                              className="bg-orbit-dark text-white"
+                            >
+                              Service Apartments
+                            </option>
+                            <option
+                              value="Other"
+                              className="bg-orbit-dark text-white"
+                            >
+                              Other
+                            </option>
+                          </select>
+                          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="m6 9 6 6 6-6" />
+                            </svg>
+                          </div>
+                        </div>
+
                         <input
                           type="text"
                           name="Location"
