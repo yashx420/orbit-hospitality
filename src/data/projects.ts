@@ -59,6 +59,7 @@ export const projects = [
     ],
     // Using images from public/projects/Peace Lily/
     images: [
+      "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/hall.jpeg",
       "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/583705990.jpeg",
       "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/583705993.jpeg",
       "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/583705994.jpeg",
@@ -80,7 +81,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/qnpvx550ti36ufohzk5i.jpeg",
       "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/xlyaznrwzikbe0cfnqs7.jpeg",
     ],
-    heroImage: "/projects/Peace Lily/1-3.jpg",
+    heroImage: "/Orbit Serviced Apartments/Peace Lily_Smart-Lit Open Terrace Stay_3BHK_AC_BBQ/hall.jpeg",
   },
   {
     id: "tulip-villa",
@@ -141,6 +142,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Villas/Tulip Villa By Orbit Hospitality/hall.jpg",
       "/Orbit Villas/Tulip Villa By Orbit Hospitality/IMG_20230507_014338.jpg",
       "/Orbit Villas/Tulip Villa By Orbit Hospitality/IMG_20230507_014355.jpg",
       "/Orbit Villas/Tulip Villa By Orbit Hospitality/IMG_20230507_014437.jpg",
@@ -174,7 +176,7 @@ export const projects = [
       "/Orbit Villas/Tulip Villa By Orbit Hospitality/IMG_20230507_020721.jpg",
       "/Orbit Villas/Tulip Villa By Orbit Hospitality/IMG_20230507_020742.jpg",
     ],
-    heroImage: "/projects/Tulip Villa/1-2.jpg",
+    heroImage: "/Orbit Villas/Tulip Villa By Orbit Hospitality/hall.jpg",
   },
   {
     id: "white-lotus",
@@ -235,6 +237,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/hall.jpeg",
       "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/07d027a6-3ae8-4bfd-b61d-ac1e2f57eb1c (1).jpeg",
       "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/07d027a6-3ae8-4bfd-b61d-ac1e2f57eb1c (5).jpeg",
       "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/11ed30e6-0f8e-44db-8f65-72bfa02159a0.jpeg",
@@ -261,7 +264,7 @@ export const projects = [
       "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/e9262f1d-a48a-45c5-bb8c-71627fff141c.jpeg",
       "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/fc55e119-e551-433c-a275-aca9d786501f.jpeg",
     ],
-    heroImage: "/projects/White lotus/6-2.jpg",
+    heroImage: "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/hall.jpeg",
   },
 
   {
@@ -323,6 +326,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/hall.webp",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/00ad9788-89a4-47e1-aedd-1c3a96ab5cc7.jpeg",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/0c00d43f-5e74-46b6-84e3-311fa46a9bdf (1).jpeg",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/12a4728b-0847-41b6-9441-d0a734d1b531.jpeg",
@@ -348,8 +352,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/cb66212a-17e1-4dbe-9686-4446f82521ef.jpeg",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/fdef6120-54bd-40aa-9a7b-a561450c49c6.jpeg",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/00ad9788-89a4-47e1-aedd-1c3a96ab5cc7.jpeg",
+    heroImage: "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/hall.webp",
   },
   {
     id: "orbit-iris",
@@ -410,6 +413,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/hall.jpg",
       "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/Ankit_s Nagawara Tulip villa 1_8151A.jpg",
       "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/Ankit_s Nagawara Tulip villa 1_8154A.jpg",
       "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/Ankit_s Nagawara Tulip villa 1_8159.jpg",
@@ -433,8 +437,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/Ankit_s Nagawara Tulip villa 1_8223.jpg",
       "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/Ankit_s Nagawara Tulip villa 1_8224.jpg",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/Ankit_s Nagawara Tulip villa 1_8151A.jpg",
+    heroImage: "/Orbit Serviced Apartments/Orbit Iris _ 3BHK _ AC _ Wi-Fi _ Near Mall of Asia/hall.jpg",
   },
   {
     id: "orbit-petunia",
@@ -495,6 +498,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/hall.JPG",
       "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/orbit hotel-57.JPG",
       "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/orbit hotel-58.JPG",
       "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/orbit hotel-59.JPG",
@@ -517,8 +521,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/orbit hotel-76.JPG",
       "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/orbit hotel-77.JPG",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/orbit hotel-57.JPG",
+    heroImage: "/Orbit Serviced Apartments/Orbit Petunia Luxe _3BHK_Hebbal_10 Min From Mall Of Asia/hall.JPG",
   },
   {
     id: "orbit-browallia",
@@ -579,6 +582,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/hall.JPG",
       "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/orbit hotel-1.JPG",
       "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/orbit hotel-10.JPG",
       "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/orbit hotel-11.JPG",
@@ -603,8 +607,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/orbit hotel-8.JPG",
       "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/orbit hotel-9.JPG",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/orbit hotel-1.JPG",
+    heroImage: "/Orbit Serviced Apartments/Orbit Browallia Luxe _ 2BHK _ Near Nagavara/hall.JPG",
   },
   {
     id: "orbit-celosia",
@@ -665,6 +668,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/hall.JPG",
       "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/orbit hotel-24 - Copy.JPG",
       "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/orbit hotel-24.JPG",
       "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/orbit hotel-25.JPG",
@@ -704,8 +708,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/orbit hotel-56 - Copy.JPG",
       "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/orbit hotel-56.JPG",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/orbit hotel-24 - Copy.JPG",
+    heroImage: "/Orbit Serviced Apartments/Orbit Celosia Luxe _2BHK_Hebbal_10 Min From Aster/hall.JPG",
   },
   {
     id: "orbit-lavender-luxe",
@@ -766,6 +769,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/hall.jpeg",
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/1d8b7239-a98c-45d0-94fe-8dddb45ac660 (1).jpeg",
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/3ef315d1-5420-413e-b127-17a7ef9ce6ce.jpeg",
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/43cbb26b-3f5c-4b0f-b50a-87b44de9aea1.jpeg",
@@ -789,8 +793,7 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/f9e6223a-9597-49e1-b3c3-d3c89e32e7f0.jpeg",
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/fb723a19-02ae-40d2-81c3-f5f516e032fd.jpeg",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/1d8b7239-a98c-45d0-94fe-8dddb45ac660 (1).jpeg",
+    heroImage: "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/hall.jpeg",
   },
   {
     id: "white-lotus-hotels",
@@ -851,6 +854,7 @@ export const projects = [
       "No Pets Allowed",
     ],
     images: [
+      "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/hall.jpeg",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/00ad9788-89a4-47e1-aedd-1c3a96ab5cc7.jpeg",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/0c00d43f-5e74-46b6-84e3-311fa46a9bdf (1).jpeg",
       "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/12a4728b-0847-41b6-9441-d0a734d1b531.jpeg",
@@ -936,7 +940,6 @@ export const projects = [
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/f9e6223a-9597-49e1-b3c3-d3c89e32e7f0.jpeg",
       "/Orbit Serviced Apartments/Orbit Lavender Luxe _ 2BHK _ AC _ Hebbal _/fb723a19-02ae-40d2-81c3-f5f516e032fd.jpeg",
     ],
-    heroImage:
-      "/Orbit Serviced Apartments/Orbit Begonia Luxe _ 3BHK _ AC _ Wi-Fi _ Balcony/00ad9788-89a4-47e1-aedd-1c3a96ab5cc7.jpeg",
+    heroImage: "/Orbit Serviced Apartments/White Lotus Penthouse_OpenTerrace_3BHK_AC_BBQ_/hall.jpeg",
   },
 ];
