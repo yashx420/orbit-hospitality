@@ -1,11 +1,4 @@
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  MapPin,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -112,28 +105,41 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Orbit Hotels. All rights reserved.
-          </p>
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-gray-500">
+            <p>
+              &copy; {new Date().getFullYear()} Orbit Hotels. All rights
+              reserved.
+            </p>
+            <span className="hidden md:block">|</span>
+            <p>
+              Powered by{" "}
+              <a
+                href="https://kevnitdigital.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orbit-gold transition-colors"
+              >
+                Kevnit Digital Solutions
+              </a>
+            </p>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a
-              href="#"
+              href="https://www.facebook.com/OrbitHotels/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-orbit-gold transition-colors"
             >
               <Facebook size={20} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/orbit_hotels_/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-orbit-gold transition-colors"
             >
               <Instagram size={20} />
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-orbit-gold transition-colors"
-            >
-              <Twitter size={20} />
             </a>
           </div>
         </div>
