@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const collections = [
   {
-    id: "service-apartments",
-    title: "Service Apartments",
+    id: "serviced-apartments",
+    title: "Serviced Apartments",
     image: "/projects/white-lotus/6-2.jpg",
     desc: "Comfort & Convenience",
   },
@@ -12,7 +12,7 @@ const collections = [
     id: "hotels",
     title: "Hotels",
     image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+      "/orbit-serviced-apartments/orbit-celosia-luxe-_2bhk_hebbal_10-min-from-aster/orbit-hotel-41.jpg",
     desc: "Premium Urban Luxury",
   },
   {

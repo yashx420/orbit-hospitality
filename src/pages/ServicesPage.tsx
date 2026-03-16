@@ -4,15 +4,20 @@ import { ArrowRight, Star, TrendingUp, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import Services from "../components/sections/Services"; // Reuse existing services
-import { projects } from "../data/projects";
+import { useProjects } from "../hooks/useProjects";
 import { getAmenityIcon } from "../utils/amenityIcons";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
-// Extract unique amenities for the ticker
-const allAmenities = Array.from(new Set(projects.flatMap((p) => p.amenities)));
-const topAmenities = allAmenities.slice(0, 15);
-
 const AmenitiesTicker = () => {
+  const { projects } = useProjects();
+
+  const allAmenities = Array.from(
+    new Set(projects.flatMap((p) => p.amenities)),
+  );
+  const topAmenities = allAmenities.slice(0, 15);
+
+  if (topAmenities.length === 0) return null;
+
   return (
     <div className="w-full bg-orbit-gold/5 py-8 md:py-12 overflow-hidden relative border-y border-orbit-gold/10 scroll-m-0">
       <div className="container mx-auto px-4 md:px-6 mb-8 text-center">
@@ -277,10 +282,10 @@ const ListYourProperty = () => {
                               Hotels
                             </option>
                             <option
-                              value="Service Apartments"
+                              value="Serviced Apartments"
                               className="bg-orbit-dark text-white"
                             >
-                              Service Apartments
+                              Serviced Apartments
                             </option>
                             <option
                               value="Other"
@@ -375,7 +380,7 @@ const ServicesPage = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-b from-orbit-dark/80 via-orbit-dark/50 to-orbit-dark z-10" />
             <img
-              src="/projects/white-lotus/6-2.jpg"
+              src="/orbit-villas/tulip-villa-by-orbit-hospitality/hall.jpg"
               alt="Orbit Hospitality Services"
               loading="lazy"
               className="w-full h-full object-cover"

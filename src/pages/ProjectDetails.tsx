@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { projects } from "../data/projects";
+import { useProject } from "../hooks/useProjects";
 import {
   ArrowLeft,
   MapPin,
@@ -62,8 +62,7 @@ const ProjectDetails = () => {
   const [lightboxImageLoaded, setLightboxImageLoaded] = useState(false);
   const [isAmenitiesExpanded, setIsAmenitiesExpanded] = useState(false);
 
-  // Find project by id (slug)
-  const project = projects.find((p) => p.id === id);
+  const { project, loading } = useProject(id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -103,6 +102,14 @@ const ProjectDetails = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxOpen, handleNext, handlePrev]);
+
+  if (loading) {
+    return (
+      <div className="min-h-dvh bg-orbit-dark flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-orbit-gold border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   if (!project) {
     return (

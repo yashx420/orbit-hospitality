@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { projects } from "../data/projects";
+import { useProjects } from "../hooks/useProjects";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,6 +18,7 @@ const Navbar = () => {
     string | null
   >(null);
   const location = useLocation();
+  const { projects } = useProjects();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -61,9 +62,9 @@ const Navbar = () => {
       dropdown: [
         { name: "All Properties", path: "/properties/all" },
         {
-          name: "Service Apartments",
-          path: "/properties/service-apartments",
-          subDropdown: getSubDropdown("service apartments"),
+          name: "Serviced Apartments",
+          path: "/properties/serviced-apartments",
+          subDropdown: getSubDropdown("serviced apartments"),
         },
         {
           name: "Hotels",

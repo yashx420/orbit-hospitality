@@ -2,14 +2,19 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, Navigation, Send } from "lucide-react";
 import SEO from "../components/SEO";
-import { projects } from "../data/projects";
+import { useProjects } from "../hooks/useProjects";
 import { getAmenityIcon } from "../utils/amenityIcons";
 
-// Extract unique amenities for the ticker
-const allAmenities = Array.from(new Set(projects.flatMap((p) => p.amenities)));
-const topAmenities = allAmenities.slice(0, 15);
-
 const AmenitiesTicker = () => {
+  const { projects } = useProjects();
+
+  const allAmenities = Array.from(
+    new Set(projects.flatMap((p) => p.amenities)),
+  );
+  const topAmenities = allAmenities.slice(0, 15);
+
+  if (topAmenities.length === 0) return null;
+
   return (
     <div className="w-full bg-orbit-gold/5 py-8 overflow-hidden relative border-y border-orbit-gold/10 scroll-m-0">
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-orbit-dark to-transparent z-10" />
@@ -57,7 +62,7 @@ const Contact = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/orbit-serviced-apartments/peace-lily_smart-lit-open-terrace-stay_3bhk_ac_bbq/hall.jpeg')",
+              "url('/orbit-serviced-apartments/peace-lily_smart-lit-open-terrace-stay_3bhk_ac_bbq/bnuxoqidplrvcvfldfno.jpeg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-orbit-dark/70 via-orbit-dark/50 to-orbit-dark" />

@@ -112,7 +112,7 @@ const AboutPage = () => {
                 <p className="text-gray-400">
                   Since our inception in 2013, Orbit Hospitality has set the
                   gold standard for premium stays in Bangalore. What began as a
-                  single luxury service apartment has blossomed into an
+                  single luxury serviced apartment has blossomed into an
                   exclusive portfolio of sophisticated high-end villas, grand
                   party venues, and meticulously appointed hotels.
                 </p>

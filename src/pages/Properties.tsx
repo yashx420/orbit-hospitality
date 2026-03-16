@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { projects } from "../data/projects";
+import { useProjects } from "../hooks/useProjects";
 import { MapPin, BedDouble, Bath, ArrowRight } from "lucide-react";
 
 import SEO from "../components/SEO";
@@ -9,6 +9,7 @@ import SEO from "../components/SEO";
 const Properties = () => {
   const { category } = useParams();
   const navigate = useNavigate();
+  const { projects, loading } = useProjects();
 
   // Capitalize category for display (e.g., "villas" -> "Villas")
   const title =
@@ -29,6 +30,17 @@ const Properties = () => {
             .toLowerCase()
             .includes(category?.toLowerCase().replace(/-/g, " ") || ""),
         );
+
+  if (loading) {
+    return (
+      <div className="min-h-dvh bg-orbit-dark flex flex-col items-center justify-center">
+        <div className="w-16 h-16 border-4 border-orbit-gold border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-orbit-gold font-serif text-xl animate-pulse">
+          Loading Properties...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-orbit-dark min-h-dvh text-white font-sans pt-32">

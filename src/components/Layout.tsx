@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import WhatsAppButton from "./WhatsAppButton";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,6 +21,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="fixed bottom-0 left-0 w-full z-0 h-[800px] md:h-[400px]">
         <Footer />
       </div>
+
+      <WhatsAppButton />
     </div>
   );
 };
