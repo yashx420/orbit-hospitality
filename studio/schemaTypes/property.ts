@@ -6,6 +6,13 @@ export const property = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'order',
+      title: 'Display Order',
+      type: 'number',
+      description: 'Lower numbers appear first (e.g. 1, 2, 3). Defaults to 0.',
+      initialValue: 0,
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

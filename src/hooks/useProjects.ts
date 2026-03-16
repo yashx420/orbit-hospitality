@@ -5,7 +5,7 @@ import type { Property } from "../types/property";
 // In-memory cache so navigating between pages doesn't re-fetch
 let cachedProjects: Property[] | null = null;
 
-const PROJECTS_QUERY = `*[_type == "property"] | order(_createdAt asc) {
+const PROJECTS_QUERY = `*[_type == "property"] | order(order asc, _createdAt desc) {
   "id": slug.current,
   title,
   category,
