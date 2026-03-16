@@ -19,17 +19,14 @@ const PROJECTS_QUERY = `*[_type == "property"] | order(_createdAt asc) {
 }`;
 
 export function useProjects() {
-  const [projects, setProjects] = useState<Property[]>(cachedProjects || []);
-  const [loading, setLoading] = useState(!cachedProjects);
+  const [projects, setProjects] = useState<Property[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (cachedProjects) return;
-
     sanityClient
       .fetch<Property[]>(PROJECTS_QUERY)
       .then((data) => {
-        cachedProjects = data;
         setProjects(data);
       })
       .catch((err) => setError(err.message))
