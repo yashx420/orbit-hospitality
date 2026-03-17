@@ -249,7 +249,7 @@ const StickySection = ({ feature, index }: { feature: any; index: number }) => {
 
 const Experience = () => {
   return (
-    <div id="about" className="hidden md:block bg-orbit-dark">
+    <div id="about" className="bg-orbit-dark">
       {features.map((feature, index) => (
         <StickySection key={index} feature={feature} index={index} />
       ))}
