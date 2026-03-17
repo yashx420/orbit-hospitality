@@ -21,6 +21,17 @@ import { getAmenityIcon } from "../utils/amenityIcons";
 
 import SEO from "../components/SEO";
 
+const DEFAULT_AMENITIES = [
+  "High-speed Wi-Fi",
+  "Daily Housekeeping",
+  "Fully Equipped Kitchen",
+  "Smart TV with Streaming",
+  "Premium Bedding",
+  "Power Backup",
+  "24/7 Security",
+  "Dedicated Workspace",
+];
+
 // Reusable Image Loader Component Component
 const ImageWithLoader = ({
   src,
@@ -71,7 +82,7 @@ const ProjectDetails = () => {
   const handleNext = useCallback(
     (e?: React.MouseEvent) => {
       e?.stopPropagation();
-      if (project) {
+      if (project && project.images.length > 0) {
         setLightboxImageLoaded(false);
         setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
       }
@@ -82,7 +93,7 @@ const ProjectDetails = () => {
   const handlePrev = useCallback(
     (e?: React.MouseEvent) => {
       e?.stopPropagation();
-      if (project) {
+      if (project && project.images.length > 0) {
         setLightboxImageLoaded(false);
         setCurrentImageIndex((prev) =>
           prev === 0 ? project.images.length - 1 : prev - 1,
@@ -162,7 +173,9 @@ const ProjectDetails = () => {
             </button>
 
             <div className="absolute top-6 left-6 text-gray-400 text-sm font-medium z-50">
-              {currentImageIndex + 1} / {project.images.length}
+              {project.images.length > 0
+                ? `${currentImageIndex + 1} / ${project.images.length}`
+                : "No images"}
             </div>
 
             <div className="relative w-full max-w-6xl h-full max-h-[85vh] flex items-center justify-center px-4 md:px-16">
@@ -255,10 +268,14 @@ const ProjectDetails = () => {
             {/* Main Image */}
             <div
               className="md:col-span-2 md:row-span-2 relative cursor-pointer overflow-hidden h-full group/main bg-white/5"
-              onClick={() => handleOpenLightbox(0)}
+              onClick={() => project.images.length > 0 && handleOpenLightbox(0)}
             >
               <ImageWithLoader
-                src={project.heroImage || (project.images[0] as string)}
+                src={
+                  project.heroImage ||
+                  (project.images[0] as string) ||
+                  "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop"
+                }
                 alt="Main view"
                 className="w-full h-full object-cover group-hover/main:scale-105 transition-transform duration-700"
               />
@@ -266,20 +283,26 @@ const ProjectDetails = () => {
             </div>
 
             {/* Sub Images Grid */}
-            {project.images.slice(1, 5).map((img, idx) => (
-              <div
-                key={idx}
-                className="hidden md:block relative cursor-pointer overflow-hidden h-full group/sub bg-white/5"
-                onClick={() => handleOpenLightbox(idx + 1)}
-              >
-                <ImageWithLoader
-                  src={img as string}
-                  alt={`View ${idx + 2}`}
-                  className="w-full h-full object-cover group-hover/sub:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover/sub:bg-black/0 transition-colors pointer-events-none" />
+            {project.images && project.images.length > 1 ? (
+              project.images.slice(1, 5).map((img, idx) => (
+                <div
+                  key={idx}
+                  className="hidden md:block relative cursor-pointer overflow-hidden h-full group/sub bg-white/5"
+                  onClick={() => handleOpenLightbox(idx + 1)}
+                >
+                  <ImageWithLoader
+                    src={img as string}
+                    alt={`View ${idx + 2}`}
+                    className="w-full h-full object-cover group-hover/sub:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover/sub:bg-black/0 transition-colors pointer-events-none" />
+                </div>
+              ))
+            ) : (
+              <div className="hidden md:flex col-span-2 row-span-2 items-center justify-center bg-white/5 text-gray-500">
+                No gallery images available
               </div>
-            ))}
+            )}
           </div>
 
           <button
@@ -352,10 +375,18 @@ const ProjectDetails = () => {
               </h3>
               <div className="space-y-6">
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
-                  {project.amenities
+                  {(project.amenities.length > 0
+                    ? project.amenities
+                    : DEFAULT_AMENITIES
+                  )
                     .slice(
                       0,
-                      isAmenitiesExpanded ? project.amenities.length : 8,
+                      isAmenitiesExpanded
+                        ? Math.max(
+                            project.amenities.length,
+                            DEFAULT_AMENITIES.length,
+                          )
+                        : 8,
                     )
                     .map((amenity, index) => (
                       <motion.li
@@ -373,14 +404,16 @@ const ProjectDetails = () => {
                     ))}
                 </ul>
 
-                {project.amenities.length > 8 && (
+                {(project.amenities.length > 8 ||
+                  (project.amenities.length === 0 &&
+                    DEFAULT_AMENITIES.length > 8)) && (
                   <button
                     onClick={() => setIsAmenitiesExpanded(!isAmenitiesExpanded)}
                     className="px-8 py-3.5 border border-white/20 rounded-xl font-bold text-white hover:bg-white hover:text-orbit-dark hover:border-white transition-all active:scale-95 shadow-lg flex items-center gap-2"
                   >
                     {isAmenitiesExpanded
                       ? "Show less"
-                      : `Show all ${project.amenities.length} amenities`}
+                      : `Show all ${project.amenities.length || DEFAULT_AMENITIES.length} amenities`}
                   </button>
                 )}
               </div>

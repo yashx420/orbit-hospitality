@@ -7,12 +7,12 @@ const PROJECTS_QUERY = `*[_type == "property"] | order(order asc, _createdAt des
   title,
   category,
   location,
-  bedrooms,
-  bathrooms,
-  description,
-  amenities,
-  "heroImage": heroImage.asset->url,
-  "images": images[].asset->url
+  "bedrooms": coalesce(bedrooms, 0),
+  "bathrooms": coalesce(bathrooms, 0),
+  "description": coalesce(description, ""),
+  "amenities": coalesce(amenities, []),
+  "heroImage": coalesce(heroImage.asset->url, ""),
+  "images": coalesce(images[].asset->url, [])
 }`;
 
 export function useProjects() {
