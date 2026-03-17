@@ -13,17 +13,17 @@ const features = [
   {
     title: "The Vision",
     desc: "At Orbit Hotels, we don't just host guests; we curate experiences defined by a relentless pursuit of perfection.",
-    img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    img: "https://cdn.sanity.io/images/78cxu1v9/property/d2b8de57f0ec8b76a4e28825e2bc0545751152a5-1200x803.jpg",
   },
   {
     title: "The Comfort",
     desc: "Indulge in a haven meticulously crafted to elevate your stay. Every detail is designed for your peace of mind.",
-    img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop",
+    img: "https://cdn.sanity.io/images/78cxu1v9/property/9917c3248b7c6a48c150c62da656eedf7b2d13f5-1080x711.jpg",
   },
   {
     title: "The Location",
     desc: "Strategically located near Manyata Tech Park, we offer the perfect blend of business convenience and leisure.",
-    img: "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=2070&auto=format&fit=crop",
+    img: "https://cdn.sanity.io/images/78cxu1v9/property/446a44f752e2753e291110fedb26dfc2571dc37b-6115x4076.jpg",
   },
 ];
 
