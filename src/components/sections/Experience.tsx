@@ -13,17 +13,17 @@ const features = [
   {
     title: "The Vision",
     desc: "At Orbit Hotels, we don't just host guests; we curate experiences defined by a relentless pursuit of perfection.",
-    img: "https://cdn.sanity.io/images/78cxu1v9/property/d2b8de57f0ec8b76a4e28825e2bc0545751152a5-1200x803.jpg",
+    accent: "from-orbit-gold/10",
   },
   {
     title: "The Comfort",
     desc: "Indulge in a haven meticulously crafted to elevate your stay. Every detail is designed for your peace of mind.",
-    img: "https://cdn.sanity.io/images/78cxu1v9/property/9917c3248b7c6a48c150c62da656eedf7b2d13f5-1080x711.jpg",
+    accent: "from-blue-500/5",
   },
   {
     title: "The Location",
     desc: "Strategically located near Manyata Tech Park, we offer the perfect blend of business convenience and leisure.",
-    img: "https://cdn.sanity.io/images/78cxu1v9/property/446a44f752e2753e291110fedb26dfc2571dc37b-6115x4076.jpg",
+    accent: "from-orbit-gold/5",
   },
 ];
 
@@ -152,27 +152,30 @@ const StickySection = ({ feature, index }: { feature: any; index: number }) => {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.3, 0.1]);
 
   return (
     <section
       ref={containerRef}
       className="relative h-dvh flex items-center justify-center overflow-hidden border-b border-white/5 perspective-2000"
     >
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden bg-orbit-dark">
+        {/* Minimal Pattern Layer */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+
         <motion.div
-          style={{ y, scale }}
-          className="absolute inset-0 w-full h-[120%] -top-[10%]"
-        >
-          <img
-            src={feature.img}
-            alt="bg"
-            loading="lazy"
-            className="w-full h-full object-cover brightness-[0.3]"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+          style={{ y, opacity }}
+          className={`absolute inset-0 bg-gradient-to-b ${feature.accent} to-transparent`}
+        />
+
+        <div className="absolute inset-0 bg-orbit-dark/20 backdrop-blur-[1px]" />
       </div>
 
       <ThreeDCard
