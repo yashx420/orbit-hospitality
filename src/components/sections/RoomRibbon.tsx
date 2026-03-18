@@ -86,84 +86,84 @@ const RoomRibbon = () => {
             </h2>
             <div className="h-1.5 w-32 bg-orbit-gold mx-auto md:mx-0" />
           </motion.div>
-
-          {/* Navigation Arrows - Mobile Only */}
-          <div className="flex md:hidden justify-center gap-4">
-            <button
-              onClick={() => scroll("left")}
-              disabled={!canScrollLeft}
-              className={`p-4 rounded-full bg-white/5 border border-white/10 transition-all ${
-                canScrollLeft
-                  ? "text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark cursor-pointer"
-                  : "text-gray-600 border-gray-800 cursor-not-allowed opacity-50"
-              }`}
-              aria-label="Scroll Left"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              disabled={!canScrollRight}
-              className={`p-4 rounded-full bg-white/5 border border-white/10 transition-all ${
-                canScrollRight
-                  ? "text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark cursor-pointer"
-                  : "text-gray-600 border-gray-800 cursor-not-allowed opacity-50"
-              }`}
-              aria-label="Scroll Right"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
         </div>
 
-        <div
-          ref={scrollRef}
-          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 overflow-x-auto sm:overflow-x-visible pb-8 sm:pb-0 hide-scrollbar snap-x snap-mandatory scroll-smooth"
-        >
-          {collections.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.2,
-                ease: "easeOut",
-              }}
-              className="min-w-[85vw] sm:min-w-0 snap-center"
-            >
-              <Link
-                to={`/properties/${item.id}`}
-                className="relative aspect-[4/5] block group overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl transition-all duration-500 hover:border-orbit-gold/30"
+        <div className="relative group/scroll">
+          {/* Navigation Arrows - Mobile Only - Side Positioned */}
+          <button
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-30 p-3 rounded-r-xl bg-orbit-dark/40 backdrop-blur-md border border-white/10 md:hidden transition-all ${
+              canScrollLeft
+                ? "text-orbit-gold opacity-100"
+                : "text-gray-600 opacity-0 pointer-events-none"
+            }`}
+            aria-label="Scroll Left"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-30 p-3 rounded-l-xl bg-orbit-dark/40 backdrop-blur-md border border-white/10 md:hidden transition-all ${
+              canScrollRight
+                ? "text-orbit-gold opacity-100"
+                : "text-gray-600 opacity-0 pointer-events-none"
+            }`}
+            aria-label="Scroll Right"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 overflow-x-auto sm:overflow-x-visible pb-8 sm:pb-0 hide-scrollbar snap-x snap-mandatory scroll-smooth px-4 sm:px-0"
+          >
+            {collections.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.2,
+                  ease: "easeOut",
+                }}
+                className="min-w-[75vw] sm:min-w-0 snap-center"
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <Link
+                  to={`/properties/${item.id}`}
+                  className="relative aspect-[4/5] block group overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl transition-all duration-500 hover:border-orbit-gold/30"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-10">
-                  <div className="h-1 w-12 bg-orbit-gold mb-4 origin-left transition-all duration-500 group-hover:w-20" />
-                  <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2 group-hover:text-orbit-gold transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 text-base md:text-lg font-light italic opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    {item.desc}
-                  </p>
-                </div>
+                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-10">
+                    <div className="h-1 w-12 bg-orbit-gold mb-4 origin-left transition-all duration-500 group-hover:w-20" />
+                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2 group-hover:text-orbit-gold transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 text-base md:text-lg font-light italic opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      {item.desc}
+                    </p>
+                  </div>
 
-                <span className="absolute top-6 right-8 text-6xl font-serif font-bold text-white/[0.03] pointer-events-none select-none z-0">
-                  0{index + 1}
-                </span>
+                  <span className="absolute top-6 right-8 text-6xl font-serif font-bold text-white/[0.03] pointer-events-none select-none z-0">
+                    0{index + 1}
+                  </span>
 
-                {/* Decorative glow on hover */}
-                <div className="absolute -inset-px rounded-[2.5rem] border border-orbit-gold/0 group-hover:border-orbit-gold/20 transition-colors duration-500 pointer-events-none" />
-              </Link>
-            </motion.div>
-          ))}
+                  {/* Decorative glow on hover */}
+                  <div className="absolute -inset-px rounded-[2.5rem] border border-orbit-gold/0 group-hover:border-orbit-gold/20 transition-colors duration-500 pointer-events-none" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
