@@ -164,15 +164,15 @@ const ListYourProperty = () => {
             className="lg:w-1/2 relative"
           >
             <div className="absolute -inset-4 bg-orbit-gold/20 blur-[100px] rounded-full pointer-events-none" />
-            <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] max-w-lg mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-t from-orbit-dark/95 via-orbit-dark/40 to-transparent z-10" />
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl max-w-lg mx-auto flex flex-col min-h-[600px] md:min-h-0 md:aspect-[3/4] lg:aspect-[4/5]">
+              <div className="absolute inset-0 bg-gradient-to-t from-orbit-dark/95 via-orbit-dark/60 to-transparent z-10" />
               <img
                 src="/projects/tulip-villa/1-2.jpg"
                 alt="Luxury Property Management"
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover z-0"
               />
-              <div className="absolute inset-0 p-6 md:p-8 z-20 flex flex-col justify-end">
-                <div className="bg-orbit-dark/70 backdrop-blur-xl rounded-3xl p-4 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden transition-all duration-500">
+              <div className="relative z-20 p-4 md:p-8 flex flex-col justify-end flex-grow pt-32">
+                <div className="bg-orbit-dark/70 backdrop-blur-xl rounded-3xl p-5 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden transition-all duration-500 mt-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-orbit-gold/10 to-transparent pointer-events-none" />
 
                   <div className="relative z-10">
