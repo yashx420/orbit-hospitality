@@ -138,7 +138,7 @@ const CollectionCard = ({ item, index }: { item: any; index: number }) => {
     damping: 20,
   });
 
-  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+  function onMouseMove(e: React.MouseEvent<any>) {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -163,67 +163,64 @@ const CollectionCard = ({ item, index }: { item: any; index: number }) => {
       }}
       className="min-w-[75vw] sm:min-w-0 snap-center"
     >
-      <Link
-        to={`/properties/${item.id}`}
-        className="block group"
-        onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
-      >
-        <motion.div
-          style={{ rotate }}
-          className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-[border-color,box-shadow] duration-500 group-hover:border-orbit-gold/40 group-hover:shadow-orbit-gold/10"
-        >
-          {/* Static Background Image */}
-          <motion.img
-            src={item.image}
-            alt={item.title}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-            whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 1 : -1 }}
-            transition={{ duration: 0.6 }}
-          />
-
-          {/* Glare/Shine Effect */}
+      <div onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
+        <Link to={`/properties/${item.id}`} className="block group">
           <motion.div
-            className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style={{
-              background: useTransform(
-                [mouseX, mouseY],
-                ([x, y]: any) =>
-                  `radial-gradient(circle at ${50 + x * 100}% ${
-                    50 + y * 100
-                  }%, rgba(255,255,255,0.1) 0%, transparent 60%)`,
-              ),
-            }}
-          />
+            style={{ rotate }}
+            className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-[border-color,box-shadow] duration-500 group-hover:border-orbit-gold/40 group-hover:shadow-orbit-gold/10"
+          >
+            {/* Static Background Image */}
+            <motion.img
+              src={item.image}
+              alt={item.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+              whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 1 : -1 }}
+              transition={{ duration: 0.6 }}
+            />
 
-          {/* Content Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-20" />
-
-          {/* Content */}
-          <div className="absolute inset-0 p-8 md:p-10 z-30 flex flex-col justify-end">
+            {/* Glare/Shine Effect */}
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="h-1 w-12 bg-orbit-gold mb-4 group-hover:w-20 transition-all duration-500 origin-left" />
-              <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2 group-hover:text-orbit-gold transition-colors duration-300">
-                {item.title}
-              </h3>
-              <p className="text-gray-400 text-base md:text-lg font-light italic overflow-hidden h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-500">
-                {item.desc}
-              </p>
-            </motion.div>
-          </div>
+              className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                background: useTransform(
+                  [mouseX, mouseY],
+                  ([x, y]: any) =>
+                    `radial-gradient(circle at ${50 + x * 100}% ${
+                      50 + y * 100
+                    }%, rgba(255,255,255,0.1) 0%, transparent 60%)`,
+                ),
+              }}
+            />
 
-          {/* Card Number */}
-          <span className="absolute top-6 right-8 text-6xl font-serif font-bold text-white/[0.05] pointer-events-none z-0">
-            0{index + 1}
-          </span>
-        </motion.div>
-      </Link>
+            {/* Content Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-20" />
+
+            {/* Content */}
+            <div className="absolute inset-0 p-8 md:p-10 z-30 flex flex-col justify-end">
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4 }}
+              >
+                <div className="h-1 w-12 bg-orbit-gold mb-4 group-hover:w-20 transition-all duration-500 origin-left" />
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2 group-hover:text-orbit-gold transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-base md:text-lg font-light italic overflow-hidden h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  {item.desc}
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Card Number */}
+            <span className="absolute top-6 right-8 text-6xl font-serif font-bold text-white/[0.05] pointer-events-none z-0">
+              0{index + 1}
+            </span>
+          </motion.div>
+        </Link>
+      </div>
     </motion.div>
   );
 };
