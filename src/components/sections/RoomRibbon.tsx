@@ -162,13 +162,16 @@ const CollectionCard = ({ item, index }: { item: any; index: number }) => {
         ease: "easeOut",
       }}
       className="min-w-[75vw] sm:min-w-0 snap-center"
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
     >
-      <Link to={`/properties/${item.id}`} className="block group">
+      <Link
+        to={`/properties/${item.id}`}
+        className="block group"
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+      >
         <motion.div
           style={{ rotate }}
-          className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 group-hover:border-orbit-gold/40 group-hover:shadow-orbit-gold/10"
+          className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-[border-color,box-shadow] duration-500 group-hover:border-orbit-gold/40 group-hover:shadow-orbit-gold/10"
         >
           {/* Static Background Image */}
           <motion.img
