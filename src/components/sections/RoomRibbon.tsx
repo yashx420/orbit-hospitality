@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -34,6 +34,29 @@ const collections = [
 
 const RoomRibbon = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      el.addEventListener("scroll", checkScroll);
+      checkScroll();
+      window.addEventListener("resize", checkScroll);
+      return () => {
+        el.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll);
+      };
+    }
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -68,14 +91,24 @@ const RoomRibbon = () => {
           <div className="flex md:hidden justify-center gap-4">
             <button
               onClick={() => scroll("left")}
-              className="p-4 rounded-full bg-white/5 border border-white/10 text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark transition-all"
+              disabled={!canScrollLeft}
+              className={`p-4 rounded-full bg-white/5 border border-white/10 transition-all ${
+                canScrollLeft
+                  ? "text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark cursor-pointer"
+                  : "text-gray-600 border-gray-800 cursor-not-allowed opacity-50"
+              }`}
               aria-label="Scroll Left"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="p-4 rounded-full bg-white/5 border border-white/10 text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark transition-all"
+              disabled={!canScrollRight}
+              className={`p-4 rounded-full bg-white/5 border border-white/10 transition-all ${
+                canScrollRight
+                  ? "text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark cursor-pointer"
+                  : "text-gray-600 border-gray-800 cursor-not-allowed opacity-50"
+              }`}
               aria-label="Scroll Right"
             >
               <ChevronRight size={24} />
