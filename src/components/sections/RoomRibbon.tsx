@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const collections = [
   {
@@ -31,25 +33,60 @@ const collections = [
 ];
 
 const RoomRibbon = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth * 0.8
+          : scrollLeft + clientWidth * 0.8;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="collection"
       className="relative py-24 bg-orbit-dark overflow-hidden"
     >
       <div className="container mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 text-center md:text-left">
-            Our <span className="text-orbit-gold">Collection</span>
-          </h2>
-          <div className="h-1.5 w-32 bg-orbit-gold mx-auto md:mx-0" />
-        </motion.div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 text-center md:text-left">
+              Our <span className="text-orbit-gold">Collection</span>
+            </h2>
+            <div className="h-1.5 w-32 bg-orbit-gold mx-auto md:mx-0" />
+          </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Navigation Arrows - Mobile Only */}
+          <div className="flex md:hidden justify-center gap-4">
+            <button
+              onClick={() => scroll("left")}
+              className="p-4 rounded-full bg-white/5 border border-white/10 text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark transition-all"
+              aria-label="Scroll Left"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="p-4 rounded-full bg-white/5 border border-white/10 text-orbit-gold hover:bg-orbit-gold hover:text-orbit-dark transition-all"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+        </div>
+
+        <div
+          ref={scrollRef}
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 overflow-x-auto sm:overflow-x-visible pb-8 sm:pb-0 hide-scrollbar snap-x snap-mandatory scroll-smooth"
+        >
           {collections.map((item, index) => (
             <motion.div
               key={item.id}
@@ -61,6 +98,7 @@ const RoomRibbon = () => {
                 delay: index * 0.2,
                 ease: "easeOut",
               }}
+              className="min-w-[85vw] sm:min-w-0 snap-center"
             >
               <Link
                 to={`/properties/${item.id}`}
