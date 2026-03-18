@@ -17,7 +17,9 @@ const Home = () => {
         description="Experience the epitome of luxury with Orbit Hospitality's exclusive villas, hotels, and serviced apartments in Bangalore."
       />
       <Hero />
-      <Experience />
+      <div className="hidden md:block">
+        <Experience />
+      </div>
       <Services />
       <RoomRibbon />
       <Testimonials />

@@ -100,11 +100,11 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white/5 backdrop-blur-2xl p-10 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl relative overflow-hidden"
+            className="bg-white/5 backdrop-blur-2xl p-6 md:p-16 rounded-[2.5rem] md:rounded-[3rem] border border-white/10 shadow-2xl relative overflow-hidden"
           >
             <div className="absolute -top-32 -left-32 w-96 h-96 bg-orbit-gold/20 blur-[120px] rounded-full pointer-events-none" />
 
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-10 relative z-10">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6 md:mb-10 relative z-10">
               Send us a message
             </h2>
 
@@ -121,32 +121,32 @@ const Contact = () => {
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
+                  <label className="text-[10px] md:text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
                     First Name
                   </label>
                   <input
                     type="text"
                     name="First Name"
                     required
-                    className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
+                    className="w-full bg-orbit-dark/60 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 text-base md:text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
+                  <label className="text-[10px] md:text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
                     Last Name
                   </label>
                   <input
                     type="text"
                     name="Last Name"
                     required
-                    className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
+                    className="w-full bg-orbit-dark/60 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 text-base md:text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
+                  <label className="text-[10px] md:text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
                     Email Address
                   </label>
                   <input
@@ -157,7 +157,7 @@ const Contact = () => {
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
+                  <label className="text-[10px] md:text-sm text-gray-400 uppercase tracking-[0.2em] font-bold">
                     Phone Number
                   </label>
                   <input
@@ -177,7 +177,7 @@ const Contact = () => {
                   name="message"
                   required
                   rows={6}
-                  className="w-full bg-orbit-dark/60 border border-white/10 rounded-2xl px-6 py-5 text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors resize-none custom-scrollbar"
+                  className="w-full bg-orbit-dark/60 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 text-base md:text-xl text-white focus:outline-none focus:border-orbit-gold/50 transition-colors resize-none custom-scrollbar"
                 ></textarea>
               </div>
 
@@ -185,7 +185,7 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold text-xl uppercase tracking-[0.2em] py-6 rounded-2xl hover:shadow-[0_0_40px_rgba(234,179,8,0.3)] transition-all duration-300 flex items-center justify-center space-x-3 mt-4 group"
+                className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold text-lg md:text-xl uppercase tracking-[0.2em] py-4 md:py-6 rounded-xl md:rounded-2xl hover:shadow-[0_0_40px_rgba(234,179,8,0.3)] transition-all duration-300 flex items-center justify-center space-x-3 mt-4 group"
               >
                 <span>Submit Request</span>
                 <Send className="w-6 h-6 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />

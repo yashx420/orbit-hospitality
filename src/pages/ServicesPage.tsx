@@ -172,7 +172,7 @@ const ListYourProperty = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 p-6 md:p-8 z-20 flex flex-col justify-end">
-                <div className="bg-orbit-dark/70 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden transition-all duration-500">
+                <div className="bg-orbit-dark/70 backdrop-blur-xl rounded-3xl p-4 md:p-8 border border-white/20 shadow-2xl relative overflow-hidden transition-all duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-orbit-gold/10 to-transparent pointer-events-none" />
 
                   <div className="relative z-10">
@@ -203,7 +203,10 @@ const ListYourProperty = () => {
                         </p>
                       </motion.div>
                     ) : (
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                      <form
+                        onSubmit={handleSubmit}
+                        className="space-y-3 md:space-y-4"
+                      >
                         {/* FormSubmit Configuration */}
                         <input
                           type="hidden"
@@ -217,14 +220,14 @@ const ListYourProperty = () => {
                           style={{ display: "none" }}
                         />
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-2 md:gap-4">
                           <input
                             type="text"
                             name="First Name"
                             placeholder="First Name"
                             required
                             disabled={formState === "submitting"}
-                            className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                            className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-2.5 md:py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 text-sm md:text-base"
                           />
                           <input
                             type="text"
@@ -232,7 +235,7 @@ const ListYourProperty = () => {
                             placeholder="Last Name"
                             required
                             disabled={formState === "submitting"}
-                            className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                            className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-2.5 md:py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 text-sm md:text-base"
                           />
                         </div>
 
@@ -242,7 +245,7 @@ const ListYourProperty = () => {
                           placeholder="Email Address"
                           required
                           disabled={formState === "submitting"}
-                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-2.5 md:py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 text-sm md:text-base"
                         />
 
                         <input
@@ -251,7 +254,7 @@ const ListYourProperty = () => {
                           placeholder="Phone Number"
                           required
                           disabled={formState === "submitting"}
-                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-2.5 md:py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 text-sm md:text-base"
                         />
 
                         <div className="relative">
@@ -260,7 +263,7 @@ const ListYourProperty = () => {
                             required
                             defaultValue=""
                             disabled={formState === "submitting"}
-                            className="w-full bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 appearance-none"
+                            className="w-full bg-white/10 text-white px-4 py-2.5 md:py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 appearance-none text-sm md:text-base"
                           >
                             <option
                               value=""
@@ -317,7 +320,7 @@ const ListYourProperty = () => {
                           placeholder="Property Location (City/Area)"
                           required
                           disabled={formState === "submitting"}
-                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50"
+                          className="w-full bg-white/10 text-white placeholder:text-gray-400 px-4 py-2.5 md:py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-orbit-gold focus:bg-white/20 transition-all disabled:opacity-50 text-sm md:text-base"
                         />
 
                         {formState === "error" && (
@@ -329,7 +332,7 @@ const ListYourProperty = () => {
                         <button
                           type="submit"
                           disabled={formState === "submitting"}
-                          className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-orbit-gold/20 transition-all duration-300 flex items-center justify-center gap-2 mt-4 disabled:opacity-70"
+                          className="w-full bg-gradient-to-r from-orbit-gold to-yellow-600 text-orbit-dark font-bold py-3 md:py-4 rounded-xl hover:shadow-lg hover:shadow-orbit-gold/20 transition-all duration-300 flex items-center justify-center gap-2 mt-4 disabled:opacity-70 text-sm md:text-base"
                         >
                           {formState === "submitting" ? (
                             <>
