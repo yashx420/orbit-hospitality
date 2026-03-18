@@ -126,7 +126,7 @@ const Footer = () => {
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a
-              href="https://www.facebook.com/OrbitHotels/"
+              href="https://www.facebook.com/profile.php?id=61561974802868"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-orbit-gold transition-colors"
