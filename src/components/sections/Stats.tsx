@@ -126,7 +126,7 @@ const Stats = () => {
   const stats = [
     { label: "Years of Excellence", value: "10+" },
     { label: "Prime Locations", value: "05" },
-    { label: "Luxury Rooms", value: "15+" },
+    { label: "Luxury Rooms", value: "35+" },
     { label: "Guest Rating", value: "4.9" },
   ];
 
