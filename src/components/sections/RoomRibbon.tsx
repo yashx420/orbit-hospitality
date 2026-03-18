@@ -14,7 +14,7 @@ const collections = [
     id: "hotels",
     title: "Hotels",
     image:
-      "/orbit-serviced-apartments/orbit-celosia-luxe-_2bhk_hebbal_10-min-from-aster/orbit-hotel-41.jpg",
+      "/orbit-serviced-apartments/white-lotus-penthouse_openterrace_3bhk_ac_bbq_/302832d0-0de3-42e7-bbfc-add5b6f72d77.jpeg",
     desc: "Premium Urban Luxury",
   },
   {
@@ -89,11 +89,24 @@ const RoomRibbon = () => {
         </div>
 
         <div className="relative group/scroll">
+          <div
+            ref={scrollRef}
+            className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 overflow-x-auto sm:overflow-x-visible pb-8 sm:pb-0 hide-scrollbar snap-x snap-mandatory scroll-smooth px-4 sm:px-0"
+          >
+            {collections.map((item, index) => (
+              <CollectionCard key={item.id} item={item} index={index} />
+            ))}
+          </div>
+
           {/* Navigation Arrows - Mobile Only - Side Positioned */}
           <button
-            onClick={() => scroll("left")}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              scroll("left");
+            }}
             disabled={!canScrollLeft}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-30 p-3 rounded-r-xl bg-orbit-dark/40 backdrop-blur-md border border-white/10 md:hidden transition-all ${
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-50 p-4 w-12 flex justify-center items-center rounded-r-xl bg-orbit-dark/70 backdrop-blur-md border border-white/20 md:hidden transition-all shadow-xl ${
               canScrollLeft
                 ? "text-orbit-gold opacity-100"
                 : "text-gray-600 opacity-0 pointer-events-none"
@@ -103,9 +116,13 @@ const RoomRibbon = () => {
             <ChevronLeft size={24} />
           </button>
           <button
-            onClick={() => scroll("right")}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              scroll("right");
+            }}
             disabled={!canScrollRight}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-30 p-3 rounded-l-xl bg-orbit-dark/40 backdrop-blur-md border border-white/10 md:hidden transition-all ${
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-50 p-4 w-12 flex justify-center items-center rounded-l-xl bg-orbit-dark/70 backdrop-blur-md border border-white/20 md:hidden transition-all shadow-xl ${
               canScrollRight
                 ? "text-orbit-gold opacity-100"
                 : "text-gray-600 opacity-0 pointer-events-none"
@@ -114,15 +131,6 @@ const RoomRibbon = () => {
           >
             <ChevronRight size={24} />
           </button>
-
-          <div
-            ref={scrollRef}
-            className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 overflow-x-auto sm:overflow-x-visible pb-8 sm:pb-0 hide-scrollbar snap-x snap-mandatory scroll-smooth px-4 sm:px-0"
-          >
-            {collections.map((item, index) => (
-              <CollectionCard key={item.id} item={item} index={index} />
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -133,7 +141,15 @@ const CollectionCard = ({ item, index }: { item: any; index: number }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const rotate = useSpring(useTransform(mouseX, [-0.5, 0.5], [-2, 2]), {
+  const rotateZ = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), {
+    stiffness: 150,
+    damping: 20,
+  });
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), {
+    stiffness: 150,
+    damping: 20,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), {
     stiffness: 150,
     damping: 20,
   });
@@ -161,13 +177,17 @@ const CollectionCard = ({ item, index }: { item: any; index: number }) => {
         delay: index * 0.1,
         ease: "easeOut",
       }}
-      className="min-w-[75vw] sm:min-w-0 snap-center"
+      className="min-w-[75vw] sm:min-w-0 snap-center perspective-1000"
     >
       <div onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
-        <Link to={`/properties/${item.id}`} className="block group">
+        <Link
+          to={`/properties/${item.id}`}
+          className="block group rounded-[2.5rem]"
+        >
           <motion.div
-            style={{ rotate }}
-            className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-[border-color,box-shadow] duration-500 group-hover:border-orbit-gold/40 group-hover:shadow-orbit-gold/10"
+            style={{ rotateZ, rotateX, rotateY }}
+            whileHover={{ scale: 1.05, z: 50 }}
+            className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-[border-color,box-shadow] duration-500 group-hover:border-orbit-gold/60 group-hover:shadow-[0_0_40px_rgba(212,175,55,0.3)] transform-style-3d"
           >
             {/* Static Background Image */}
             <motion.img
@@ -175,7 +195,7 @@ const CollectionCard = ({ item, index }: { item: any; index: number }) => {
               alt={item.title}
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
-              whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 1 : -1 }}
+              whileHover={{ scale: 1.15, rotateZ: index % 2 === 0 ? 3 : -3 }}
               transition={{ duration: 0.6 }}
             />
 
