@@ -8,7 +8,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed right-5 top-[35%] md:top-1/2 -translate-y-1/2 z-50 group flex items-center"
+      className="fixed right-5 top-[20%] md:top-1/2 -translate-y-1/2 z-50 group flex items-center"
     >
       {/* Tooltip */}
       <span className="absolute right-full mr-3 whitespace-nowrap bg-white text-gray-800 text-sm font-semibold px-4 py-2 rounded-lg shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300">

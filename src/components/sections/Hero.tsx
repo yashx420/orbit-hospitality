@@ -75,7 +75,7 @@ const Hero = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative h-[75dvh] md:h-dvh overflow-hidden bg-orbit-dark perspective-1000" // Reduced mobile height to show more image width
+      className="relative h-dvh overflow-hidden bg-orbit-dark perspective-1000"
     >
       {/* Background Video/Image Carousel */}
       <div className="absolute inset-0 z-0 pointer-events-none">
