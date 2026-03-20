@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <img
               src="/logo_half.png"
               alt="Orbit Hotels"
@@ -17,6 +17,25 @@ const Footer = () => {
               Redefining hospitality with luxury accommodations and exceptional
               service. Your comfort is our priority.
             </p>
+            {/* Social Links - Primary Placement for Mobile */}
+            <div className="flex space-x-6 pt-2">
+              <a
+                href="https://www.facebook.com/profile.php?id=61561974802868"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold transition-all"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/orbit_hotels_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold transition-all"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
