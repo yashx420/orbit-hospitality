@@ -1,4 +1,4 @@
-# name: Deploy to cPanel via FTP (First Activation)
+name: Build & Deploy to cPanel
 
 on:
   push:
@@ -39,5 +39,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./public_html/
+          server-dir: ./
+
           # Change server-dir above if you want to deploy to a subdirectory e.g. /public_html/
