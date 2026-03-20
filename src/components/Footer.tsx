@@ -124,12 +124,12 @@ const Footer = () => {
               </a>
             </p>
           </div>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex justify-center md:justify-end space-x-8 md:space-x-6 mt-8 md:mt-0">
             <a
               href="https://www.facebook.com/profile.php?id=61561974802868"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-orbit-gold transition-colors"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold hover:border-orbit-gold transition-all"
             >
               <Facebook size={20} />
             </a>
@@ -137,7 +137,7 @@ const Footer = () => {
               href="https://www.instagram.com/orbit_hotels_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-orbit-gold transition-colors"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold hover:border-orbit-gold transition-all"
             >
               <Instagram size={20} />
             </a>

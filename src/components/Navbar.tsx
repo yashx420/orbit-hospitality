@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronRight,
+  ChevronDown,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useProjects } from "../hooks/useProjects";
 
@@ -384,6 +391,26 @@ const Navbar = () => {
               transition={{ delay: 0.6 }}
               className="mt-12 text-center border-t border-white/10 pt-8"
             >
+              {/* Social Links on Mobile Menu */}
+              <div className="flex justify-center space-x-8 mb-8">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61561974802868"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold hover:border-orbit-gold transition-all"
+                >
+                  <Facebook size={24} />
+                </a>
+                <a
+                  href="https://www.instagram.com/orbit_hotels_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold hover:border-orbit-gold transition-all"
+                >
+                  <Instagram size={24} />
+                </a>
+              </div>
+
               <img
                 src="/logo.png"
                 alt="Orbit Hotels"
