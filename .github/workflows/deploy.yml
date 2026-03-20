@@ -1,0 +1,43 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Remove redundant assets (already on cPanel)
+        run: |
+          rm -rf dist/orbit-party-venue
+          rm -rf dist/orbit-serviced-apartments
+          rm -rf dist/orbit-villas
+
+      - name: Sync FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /
+          # Change server-dir above if you want to deploy to a subdirectory e.g. /public_html/
