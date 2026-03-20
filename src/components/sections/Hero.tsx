@@ -79,26 +79,59 @@ const Hero = () => {
     >
       {/* Background Video/Image Carousel */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('${images[currentIndex]}')`,
-              filter: "brightness(0.6)",
-            }}
-            initial={{ scale: 1, opacity: 0 }}
-            animate={{ scale: 1.2, opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              scale: { duration: 10, ease: "linear" }, // Slow zoom for each slide
-              opacity: { duration: 1 }, // Crossfade
-            }}
-          />
-        </AnimatePresence>
+        {/* Desktop Single Background */}
+        <div className="hidden md:block absolute inset-0">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentIndex}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('${images[currentIndex]}')`,
+                filter: "brightness(0.6)",
+              }}
+              initial={{ scale: 1, opacity: 0 }}
+              animate={{ scale: 1.2, opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                scale: { duration: 10, ease: "linear" },
+                opacity: { duration: 1 },
+              }}
+            />
+          </AnimatePresence>
+        </div>
+
+        {/* Mobile Triple Stack Background */}
+        <div className="md:hidden absolute inset-0 flex flex-col">
+          {[0, 1, 2].map((slotIndex) => (
+            <div
+              key={slotIndex}
+              className="relative h-1/3 w-full overflow-hidden border-b border-white/5 last:border-0"
+            >
+              <AnimatePresence mode="popLayout">
+                <motion.div
+                  key={`${slotIndex}-${currentIndex}`}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('${
+                      images[(currentIndex + slotIndex) % images.length]
+                    }')`,
+                    filter: "brightness(0.7)",
+                  }}
+                  initial={{ scale: 1.3, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    scale: { duration: 10, ease: "linear" },
+                    opacity: { duration: 1.5 },
+                  }}
+                />
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
 
         {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10" />
       </div>
 
       {/* Central Content */}

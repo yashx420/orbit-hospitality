@@ -14,7 +14,7 @@ const collections = [
     id: "hotels",
     title: "Hotels",
     image:
-      "/orbit-serviced-apartments/white-lotus-penthouse_openterrace_3bhk_ac_bbq_/302832d0-0de3-42e7-bbfc-add5b6f72d77.jpeg",
+      "/orbit-serviced-apartments/white-lotus-penthouse_openterrace_3bhk_ac_bbq_/192bdb0e-e567-4eab-b120-4130684aad6b.jpeg",
     desc: "Premium Urban Luxury",
   },
   {
