@@ -105,8 +105,28 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-gray-500">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row-reverse justify-between items-center gap-8 md:gap-4 text-sm">
+          {/* Social Links - Visible on both, but more prominent on mobile */}
+          <div className="flex justify-center md:justify-end space-x-8 md:space-x-6">
+            <a
+              href="https://www.facebook.com/profile.php?id=61561974802868"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 md:w-10 md:h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:text-orbit-gold hover:border-orbit-gold transition-all"
+            >
+              <Facebook size={24} className="md:w-5 md:h-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/orbit_hotels_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 md:w-10 md:h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:text-orbit-gold hover:border-orbit-gold transition-all"
+            >
+              <Instagram size={24} className="md:w-5 md:h-5" />
+            </a>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-4 text-center md:text-left text-gray-500">
             <p>
               &copy; {new Date().getFullYear()} Orbit Hotels. All rights
               reserved.
@@ -123,24 +143,6 @@ const Footer = () => {
                 Kevnit Digital Solutions
               </a>
             </p>
-          </div>
-          <div className="flex justify-center md:justify-end space-x-8 md:space-x-6 mt-8 md:mt-0">
-            <a
-              href="https://www.facebook.com/profile.php?id=61561974802868"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold hover:border-orbit-gold transition-all"
-            >
-              <Facebook size={20} />
-            </a>
-            <a
-              href="https://www.instagram.com/orbit_hotels_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-orbit-gold hover:border-orbit-gold transition-all"
-            >
-              <Instagram size={20} />
-            </a>
           </div>
         </div>
       </div>
