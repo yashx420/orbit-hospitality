@@ -1,4 +1,4 @@
-name: Build & Deploy to cPanel
+name: Build & Deploy to Hostinger
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Remove redundant assets (already on cPanel)
+      - name: Remove redundant assets (already on hosting)
         run: |
           rm -rf dist/orbit-party-venue
           rm -rf dist/orbit-serviced-apartments
@@ -39,6 +39,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./
-
-          # Change server-dir above if you want to deploy to a subdirectory e.g. /public_html/
+          server-dir: ./public_html/
+          
+          # IMPORTANT: For Hostinger, `server-dir` usually needs to be `./public_html/`
+          # However, if you created an FTP account that points directly to the `public_html` folder,
+          # change this back to `./`
