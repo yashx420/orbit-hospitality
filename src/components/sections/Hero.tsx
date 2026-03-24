@@ -9,7 +9,7 @@ import {
   useSpring,
 } from "framer-motion";
 
-const images = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg"];
+const images = ["/1.webp", "/2.webp", "/3.webp", "/4.webp", "/5.webp"];
 
 const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);

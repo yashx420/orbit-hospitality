@@ -112,7 +112,7 @@ const Navbar = () => {
             className="flex items-center shrink-0"
           >
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="Orbit Hotels"
               className="h-10 w-auto object-contain"
             />
@@ -412,7 +412,7 @@ const Navbar = () => {
               </div>
 
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Orbit Hotels"
                 className="h-12 w-auto mx-auto mb-4 opacity-50"
               />
